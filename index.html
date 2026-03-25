@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="sr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>28 CRNA | Premium Energija</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0a0a',
+                        neon: '#ff00ff', // Magenta
+                        neonBlue: '#00ffff',
+                        neonGreen: '#39ff14'
+                    },
+                    fontFamily: {
+                        heading: ['Anton', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for specific effects -->
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        /* Hide scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff00ff;
+        }
+
+        .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(255, 255, 255, 0.2);
+        }
+        
+        .text-outline-neon {
+            color: transparent;
+            -webkit-text-stroke: 2px #ff00ff;
+            text-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: #0a0a0a;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .magnetic-btn {
+            display: inline-block;
+            cursor: pointer;
+        }
+        
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+        }
+        
+        .marquee-content {
+            display: inline-block;
+        }
+        
+        /* Bento Grid */
+        .bento-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            transition: border-color 0.3s ease;
+        }
+        .bento-item:hover {
+            border-color: rgba(255, 0, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="font-body antialiased selection:bg-neon selection:text-white">
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black z-[100] transform translate-x-full transition-transform duration-500 flex flex-col justify-center items-center">
+        <button id="close-menu" class="absolute top-6 right-6 font-heading text-4xl text-white">&times;</button>
+        <div class="flex flex-col gap-8 font-heading text-4xl text-center uppercase text-white">
+            <a href="/drinks.html" class="hover:text-neon transition-colors mobile-link">Proizvodi</a>
+            <a href="/#sastojci" class="hover:text-neon transition-colors mobile-link">Sastojci</a>
+            <a href="/#prica" class="hover:text-neon transition-colors mobile-link">Priča</a>
+        </div>
+    </div>
+
+    <!-- 1. Preloader -->
+    <div id="preloader">
+        <img src="https://www.28black.com/wp-content/uploads/2025/07/logo-1-1.png" alt="28 Black Logo" class="h-16 md:h-24 mb-8">
+        <div class="flex items-center gap-4">
+            <div class="w-48 h-1 bg-gray-800 rounded-full overflow-hidden">
+                <div id="loader-bar" class="h-full bg-neon w-0"></div>
+            </div>
+            <div id="loader-text" class="font-mono text-xl text-neon">0%</div>
+        </div>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <main id="main-content" class="opacity-0">
+        
+        <!-- Navigation -->
+        <nav class="fixed top-0 left-0 w-full p-6 md:p-10 flex justify-between items-center z-50 mix-blend-difference">
+            <a href="/"><img src="https://www.28black.com/wp-content/uploads/2025/07/logo-1-1.png" alt="28 Black Logo" class="h-8 md:h-10"></a>
+            <div class="hidden md:flex gap-8 font-bold text-sm tracking-widest uppercase">
+                <a href="/drinks.html" class="hover:text-neon transition-colors">Proizvodi</a>
+                <a href="/#sastojci" class="hover:text-neon transition-colors">Sastojci</a>
+                <a href="/#prica" class="hover:text-neon transition-colors">Priča</a>
+            </div>
+            <button id="open-menu" class="md:hidden font-heading text-xl">MENI</button>
+        </nav>
+
+        <!-- 2. Hero Section -->
+        <section class="relative h-screen w-full flex items-center justify-center overflow-hidden" id="hero">
+            <!-- Background Typography -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+                <h1 id="hero-bg-text" class="font-heading text-[15vw] leading-none text-outline whitespace-nowrap opacity-50">
+                    ČISTA ENERGIJA
+                </h1>
+            </div>
+
+            <!-- Foreground Content -->
+            <div class="relative z-10 flex flex-col items-center justify-center w-full h-full" id="hero-content">
+                <!-- Product Image Placeholder -->
+                <div class="relative mb-10" id="hero-product">
+                    <a href="/drinks.html" class="relative group inline-block cursor-pointer transition-transform duration-500 hover:scale-105" aria-label="Premium Energy Drink">
+                        <img src="https://www.28black.com/wp-content/uploads/2025/09/lid-only.png" alt="Lid" class="absolute top-[-8%] left-0 w-full h-auto z-0 opacity-0 translate-y-6 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none" referrerPolicy="no-referrer">
+                        <img src="https://www.28black.com/wp-content/uploads/2025/07/acai.png" alt="Premium Energy Drink" class="relative z-10 w-64 md:w-80 h-auto object-contain" referrerPolicy="no-referrer">
+                    </a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="magnetic-btn" id="hero-cta">
+                    <a href="/drinks.html" class="relative inline-flex items-center justify-center px-10 py-5 font-bold text-white uppercase tracking-[0.2em] bg-transparent border border-neon rounded-full overflow-hidden group">
+                        <span class="absolute inset-0 w-full h-full bg-neon transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></span>
+                        <span class="relative z-10 group-hover:text-dark transition-colors duration-500">Otkrij Više</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Infinite Marquee -->
+        <section class="py-10 bg-neon text-dark transform -rotate-2 scale-110 z-20 relative">
+            <div class="marquee-container flex">
+                <div class="marquee-content font-heading text-6xl md:text-8xl uppercase tracking-wider">
+                    ENERGIJA BEZ KOMPROMISA • 100% SNAGA • BEZ TAURINA • 
+                </div>
+                <div class="marquee-content font-heading text-6xl md:text-8xl uppercase tracking-wider" aria-hidden="true">
+                    ENERGIJA BEZ KOMPROMISA • 100% SNAGA • BEZ TAURINA • 
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Dynamic Product Showcase -->
+        <section id="proizvodi" class="h-screen w-full relative overflow-hidden flex items-center bg-dark transition-colors duration-700" id="showcase-section">
+            <div class="container mx-auto px-6 h-full flex flex-col justify-center relative z-10">
+                <div class="absolute top-20 left-6 md:left-20">
+                    <h2 class="font-heading text-5xl md:text-8xl text-outline opacity-30">KOLEKCIJA</h2>
+                </div>
+
+                <div class="flex h-[60vh] items-center relative" id="product-slider">
+                    <!-- Product 1 -->
+                    <div class="product-panel w-full flex-shrink-0 flex flex-col md:flex-row items-center justify-center gap-10 opacity-100 absolute inset-0">
+                        <div class="w-1/2 flex justify-center">
+                            <a href="/drinks.html" class="relative group inline-block cursor-pointer transition-transform duration-500 hover:scale-105" aria-label="Classic">
+                                <img src="https://www.28black.com/wp-content/uploads/2025/09/lid-only.png" alt="Lid" class="absolute top-[-8%] left-0 w-full h-auto z-0 opacity-0 translate-y-6 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none" referrerPolicy="no-referrer">
+                                <img src="https://www.28black.com/wp-content/uploads/2025/07/acai.png" alt="Classic" class="relative z-10 w-48 md:w-64 h-auto object-contain" referrerPolicy="no-referrer">
+                            </a>
+                        </div>
+                        <div class="w-1/2 text-center md:text-left">
+                            <h3 class="font-heading text-5xl md:text-7xl mb-4 text-neon">AÇAÍ</h3>
+                            <p class="text-gray-400 max-w-md text-lg">Sirova snaga. Autentičan ukus. Za one koji ne prihvataju ne kao odgovor.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="product-panel w-full flex-shrink-0 flex flex-col md:flex-row items-center justify-center gap-10 opacity-0 absolute inset-0 translate-y-20">
+    
+                        <div class="w-1/2 flex justify-center">
+                            <a href="/drinks.html" class="relative group inline-block cursor-pointer transition-transform duration-500 hover:scale-105" aria-label="Zero">
+                                <img src="https://www.28black.com/wp-content/uploads/2025/09/lid-only.png" alt="Lid" class="absolute top-[-8%] left-0 w-full h-auto z-0 opacity-0 translate-y-6 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none" referrerPolicy="no-referrer">
+                                <img src="https://www.28black.com/wp-content/uploads/2025/07/Acai-Zero.png" alt="Zero" class="relative z-10 w-48 md:w-64 h-auto object-contain" referrerPolicy="no-referrer">
+                            </a>
+                        </div>
+    
+    <div class="w-1/2 text-center md:text-left">
+        <h3 class="font-heading text-5xl md:text-7xl mb-4 text-neonBlue">AÇAÍ ZERO</h3>
+        <p class="text-gray-400 max-w-md text-lg">Isti intenzitet. Nula šećera. Nula kalorija.</p>
+    </div>
+    
+</div>
+
+                    <!-- Product 3 -->
+                    <div class="product-panel w-full flex-shrink-0 flex flex-col md:flex-row items-center justify-center gap-10 opacity-0 absolute inset-0 translate-y-20">
+                        <div class="w-1/2 flex justify-center">
+                            <a href="/drinks.html" class="relative group inline-block cursor-pointer transition-transform duration-500 hover:scale-105" aria-label="Acid">
+                                <img src="https://www.28black.com/wp-content/uploads/2025/09/lid-only.png" alt="Lid" class="absolute top-[-8%] left-0 w-full h-auto z-0 opacity-0 translate-y-6 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none" referrerPolicy="no-referrer">
+                                <img src="https://www.28black.com/wp-content/uploads/2025/07/28B_Dose_Waldmeister_iso_matt_DE.png" alt="Acid" class="relative z-10 w-48 md:w-64 h-auto object-contain" referrerPolicy="no-referrer">
+                            </a>
+                        </div>
+                        <div class="w-1/2 text-center md:text-left">
+                            <h3 class="font-heading text-5xl md:text-7xl mb-4 text-neonGreen">WALDMEISTER</h3>
+                            <p class="text-gray-400 max-w-md text-lg">Eksplozija herbal ukusa. Nije za slabiće.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Feature / Ingredients Grid -->
+        <section id="sastojci" class="py-32 relative z-20 bg-dark">
+            <div class="container mx-auto px-6">
+                <h2 class="font-heading text-6xl md:text-8xl mb-20 text-center">ŠTA JE UNUTRA?</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto" id="bento-grid">
+                    <!-- Item 1 (Large) -->
+                    <div class="bento-item col-span-1 md:col-span-2 p-10 flex flex-col justify-end h-80 relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1511556820780-d912e42b4980?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" alt="Caffeine" referrerPolicy="no-referrer">
+                        <div class="relative z-20">
+                            <h3 class="font-heading text-4xl text-neon mb-2">PRIRODNI KOFEIN</h3>
+                            <p class="text-gray-300">Ekstrahovan iz najfinijih zrna za dugotrajan fokus bez naglog pada.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="bento-item p-10 flex flex-col justify-center items-center text-center h-80">
+                        <div class="text-6xl mb-4">⚡</div>
+                        <h3 class="font-heading text-3xl mb-2">B-KOMPLEKS</h3>
+                        <p class="text-gray-400 text-sm">Vitamini B3, B6 i B12 za optimalan metabolizam energije.</p>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="bento-item p-10 flex flex-col justify-center items-center text-center h-80 border-neon/50 hover:border-neon transition-colors shadow-[0_0_30px_rgba(255,0,255,0.1)]">
+                        <div class="text-6xl mb-4">🚫</div>
+                        <h3 class="font-heading text-3xl mb-2 text-neon">BEZ TAURINA</h3>
+                        <p class="text-gray-300 text-sm font-semibold">Potpuno bez taurina. Čista energija iz prirodnih izvora, bez veštačkih stimulansa.</p>
+                    </div>
+
+                    <!-- Item 4 (Large) -->
+                    <div class="bento-item col-span-1 md:col-span-2 p-10 flex flex-col justify-end h-80 relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1605648916361-9bc12ad6a569?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-700" alt="No Sugar" referrerPolicy="no-referrer">
+                        <div class="relative z-20">
+                            <h3 class="font-heading text-4xl text-neonBlue mb-2">NULA ŠEĆERA</h3>
+                            <p class="text-gray-300">Zaslađeno prirodnim alternativama. Bez praznih kalorija.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Footer -->
+        <footer id="prica" class="relative bg-black pt-32 pb-10 overflow-hidden">
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-20">
+                    <h2 class="font-heading text-[10vw] leading-none text-white hover:text-neon transition-colors duration-500 cursor-default">
+                        ZAPOČNI SVOJU PRIČU
+                    </h2>
+                </div>
+                
+                <div class="flex flex-col md:flex-row justify-between items-center border-t border-gray-800 pt-10">
+                    <img src="https://www.28black.com/wp-content/uploads/2025/07/logo-1-1.png" alt="28 Black Logo" class="h-8 mb-6 md:mb-0">
+                    
+                    <div class="flex gap-8 mb-6 md:mb-0">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors font-bold tracking-wider uppercase text-sm">Instagram</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors font-bold tracking-wider uppercase text-sm">TikTok</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors font-bold tracking-wider uppercase text-sm">YouTube</a>
+                    </div>
+                    
+                    <div class="text-gray-600 text-sm">
+                        &copy; 2026 28 CRNA. Sva prava zadržana.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Abstract background glow -->
+            <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-[800px] h-[800px] bg-neon opacity-10 rounded-full blur-[100px] pointer-events-none"></div>
+        </footer>
+
+    </main>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script>
+        // Mobile Menu Logic
+        const mobileMenu = document.getElementById('mobile-menu');
+        const openMenuBtn = document.getElementById('open-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        if(openMenuBtn && closeMenuBtn && mobileMenu) {
+            openMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+            });
+            closeMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('translate-x-full');
+                });
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // 1. Preloader Animation
+            let progress = 0;
+            const loaderText = document.getElementById('loader-text');
+            const loaderBar = document.getElementById('loader-bar');
+            
+            const interval = setInterval(() => {
+                progress += Math.floor(Math.random() * 10) + 5;
+                if (progress > 100) progress = 100;
+                
+                loaderText.innerText = progress + '%';
+                loaderBar.style.width = progress + '%';
+                
+                if (progress === 100) {
+                    clearInterval(interval);
+                    
+                    const tl = gsap.timeline();
+                    tl.to("#preloader", {
+                        yPercent: -100,
+                        duration: 1,
+                        ease: "power4.inOut",
+                        delay: 0.2
+                    })
+                    .to("#main-content", {
+                        opacity: 1,
+                        duration: 0.5
+                    }, "-=0.5")
+                    // Trigger Hero Animations
+                    .from("#hero-bg-text", {
+                        scale: 0.8,
+                        opacity: 0,
+                        duration: 1.5,
+                        ease: "power3.out"
+                    }, "-=0.2")
+                    .from("#hero-product", {
+                        y: 100,
+                        opacity: 0,
+                        duration: 1.2,
+                        ease: "back.out(1.7)"
+                    }, "-=1")
+                    .from("#hero-cta", {
+                        y: 30,
+                        opacity: 0,
+                        duration: 1,
+                        ease: "power3.out"
+                    }, "-=0.8");
+                }
+            }, 50);
+
+            // 2. Hero Animations
+            // Floating product yoyo
+            gsap.to("#hero-product", {
+                y: -20,
+                duration: 2,
+                ease: "sine.inOut",
+                yoyo: true,
+                repeat: -1
+            });
+
+            // Mouse parallax effect
+            const heroSection = document.getElementById('hero');
+            const heroBgText = document.getElementById('hero-bg-text');
+            const heroProduct = document.getElementById('hero-product');
+
+            heroSection.addEventListener('mousemove', (e) => {
+                const xPos = (e.clientX / window.innerWidth - 0.5) * 20;
+                const yPos = (e.clientY / window.innerHeight - 0.5) * 20;
+
+                gsap.to(heroBgText, {
+                    x: xPos * 2,
+                    y: yPos * 2,
+                    duration: 1,
+                    ease: "power2.out"
+                });
+
+                gsap.to(heroProduct, {
+                    x: -xPos * 3,
+                    y: -yPos * 3,
+                    duration: 1,
+                    ease: "power2.out"
+                });
+            });
+
+            // Magnetic Button Effect
+            const magneticBtn = document.querySelector('.magnetic-btn');
+            
+            magneticBtn.addEventListener('mousemove', (e) => {
+                const rect = magneticBtn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                gsap.to(magneticBtn, {
+                    x: x * 0.3,
+                    y: y * 0.3,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+            
+            magneticBtn.addEventListener('mouseleave', () => {
+                gsap.to(magneticBtn, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.7,
+                    ease: "elastic.out(1, 0.3)"
+                });
+            });
+
+            // 3. Infinite Marquee
+            const marqueeContents = document.querySelectorAll('.marquee-content');
+            
+            gsap.to(marqueeContents, {
+                xPercent: -100,
+                repeat: -1,
+                duration: 15,
+                ease: "linear"
+            });
+
+            // 4. Dynamic Product Showcase (Pinned Scroll)
+            const panels = gsap.utils.toArray('.product-panel');
+            const showcaseSection = document.getElementById('proizvodi');
+            
+            // Set initial states
+            gsap.set(panels[0], { opacity: 1, y: 0 });
+            gsap.set(panels.slice(1), { opacity: 0, y: 50 });
+
+            const showcaseTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: "#proizvodi",
+                    start: "top top",
+                    end: "+=200%", // Pin for 2 viewport heights
+                    pin: true,
+                    scrub: 1,
+                }
+            });
+
+            // Transition to Product 2 (Zero - Blue)
+            showcaseTl.to(panels[0], { opacity: 0, y: -50, duration: 1 })
+                      .to(showcaseSection, { backgroundColor: '#001a1a', duration: 1 }, "<")
+                      .to(panels[1], { opacity: 1, y: 0, duration: 1 }, "<0.5")
+                      
+            // Transition to Product 3 (Acid - Green)
+                      .to(panels[1], { opacity: 0, y: -50, duration: 1 })
+                      .to(showcaseSection, { backgroundColor: '#0a1a0a', duration: 1 }, "<")
+                      .to(panels[2], { opacity: 1, y: 0, duration: 1 }, "<0.5");
+
+            // 5. Bento Grid Stagger Reveal
+            gsap.from(".bento-item", {
+                scrollTrigger: {
+                    trigger: "#sastojci",
+                    start: "top 70%",
+                },
+                y: 100,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: "power3.out"
+            });
+
+        });
+    </script>
+</body>
+</html>
