@@ -174,10 +174,38 @@
                 <div class="hidden md:block w-1/2"></div> <!-- Empty space for can -->
             </div>
         </section>
-    </div>
+    </div> <!-- End of scroll-container -->
+
+        <!-- Product Slider Section -->
+        <section id="product-slider" class="relative w-full h-screen flex overflow-hidden z-40 bg-black snap-start">
+            <!-- Left Color Background -->
+            <div id="slider-bg" class="absolute top-0 left-0 w-full md:w-1/2 h-1/2 md:h-full transition-colors duration-500 z-20" style="background-color: #e65c7b;"></div>
+            
+            <!-- Left Content (Text and Buttons) -->
+            <div class="absolute top-0 left-0 w-full md:w-1/2 h-1/2 md:h-full flex flex-col justify-center px-8 md:px-20 pt-24 md:pt-0 z-40 pointer-events-none">
+                <h3 id="slider-subtitle" class="text-white font-bold tracking-widest uppercase text-sm md:text-lg mb-2 drop-shadow-md transition-opacity duration-300">AÇAÍ ZERO</h3>
+                <h2 id="slider-title" class="font-heading text-6xl md:text-8xl text-white mb-8 drop-shadow-lg transition-opacity duration-300">Açaí Zero</h2>
+                <a href="drinks.html" class="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-bold py-4 px-8 tracking-widest uppercase text-sm transition-colors w-max pointer-events-auto">OTKRIJ SADA</a>
+                
+                <!-- Navigation Arrows -->
+                <div class="flex gap-2 mt-8 md:mt-12">
+                    <button id="prev-slide" class="w-12 h-12 flex items-center justify-center bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white transition-colors pointer-events-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+                    </button>
+                    <button id="next-slide" class="w-12 h-12 flex items-center justify-center bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white transition-colors pointer-events-auto">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Cans Slider Track -->
+            <div id="slider-track" class="absolute top-0 left-0 w-full h-full pointer-events-none">
+                <!-- Cans will be injected here -->
+            </div>
+        </section>
 
     <!-- Footer -->
-    <footer class="relative bg-black pt-20 pb-10 overflow-hidden border-t border-white/10 z-40">
+    <footer class="relative bg-black pt-20 pb-10 overflow-hidden border-t border-white/10 z-40 snap-end">
         <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <img src="https://www.28black.com/wp-content/uploads/2025/07/logo-1-1.png" alt="28 Black Logo" class="h-8 mb-6 md:mb-0">
@@ -270,7 +298,7 @@
 
                 // Section 1 to Section 2
                 tl.to(can, {
-                    x: "-20vw",
+                    x: "-22vw",
                     y: "5vh",
                     rotation: -15,
                     scale: 0.9,
@@ -279,7 +307,7 @@
 
                 // Section 2 to Section 3
                 tl.to(can, {
-                    x: "20vw",
+                    x: "22vw",
                     y: "0vh",
                     rotation: 0,
                     scale: 1,
@@ -288,9 +316,9 @@
 
                 gsap.to("#can-container", {
                     scrollTrigger: {
-                        trigger: "footer",
+                        trigger: "#product-slider",
                         start: "top bottom",
-                        end: "bottom bottom",
+                        end: "top center",
                         scrub: true
                     },
                     opacity: 0,
@@ -329,15 +357,156 @@
 
                 gsap.to("#can-container", {
                     scrollTrigger: {
-                        trigger: "footer",
+                        trigger: "#product-slider",
                         start: "top bottom",
-                        end: "bottom bottom",
+                        end: "top center",
                         scrub: true
                     },
                     opacity: 0,
                     y: -50
                 });
             });
+
+            // --- Infinite Loop Slider Logic ---
+            const products = [
+                { id: 'zero', name: 'Açaí Zero', subtitle: 'AÇAÍ ZERO', color: '#e65c7b', img: 'https://www.28black.com/wp-content/uploads/2025/07/Acai-Zero.png' },
+                { id: 'acai', name: 'Açaí', subtitle: 'AÇAÍ', color: '#c83246', img: 'https://www.28black.com/wp-content/uploads/2025/07/acai.png' },
+                { id: 'waldmeister', name: 'Waldmeister', subtitle: 'WALDMEISTER', color: '#78c846', img: 'https://www.28black.com/wp-content/uploads/2025/07/28B_Dose_Waldmeister_iso_matt_DE.png' },
+                { id: 'sourcherry', name: 'Sour Cherry', subtitle: 'SOUR CHERRY', color: '#c82828', img: 'https://www.28black.com/wp-content/uploads/2025/07/Sour-Cherry.png' },
+                { id: 'limetteminze', name: 'Limette-Minze', subtitle: 'LIMETTE-MINZE', color: '#8cd264', img: 'https://www.28black.com/wp-content/uploads/2025/07/Limette-Minze.png' },
+                { id: 'sourmangokiwi', name: 'Sour Mango-Kiwi', subtitle: 'SOUR MANGO-KIWI', color: '#f0c846', img: 'https://www.28black.com/wp-content/uploads/2025/07/Sour-Mango-Kiwi.png' },
+                { id: 'honigmelone', name: 'Honigmelone', subtitle: 'HONIGMELONE', color: '#f0dc46', img: 'https://www.28black.com/wp-content/uploads/2025/07/Honigmelone-1.png' },
+                { id: 'classic', name: 'Classic Energy Taste', subtitle: 'CLASSIC ENERGY TASTE', color: '#8c96a0', img: 'https://www.28black.com/wp-content/uploads/2025/07/Classic.png' },
+                { id: 'ananaskokos', name: 'Ananas-Kokos', subtitle: 'ANANAS-KOKOS', color: '#64b4b4', img: 'https://www.28black.com/wp-content/uploads/2025/10/28B_Ananas_Kokos.png' }
+            ];
+
+            let currentIndex = 0;
+            const track = document.getElementById('slider-track');
+
+            if (track) {
+                // Inject items
+                products.forEach((product, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'absolute top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-in-out cursor-pointer flex justify-center items-center pointer-events-auto';
+                    item.style.width = '300px'; 
+                    item.onclick = () => goToSlide(index);
+                    
+                    const img = document.createElement('img');
+                    img.src = product.img;
+                    img.alt = product.name;
+                    img.className = 'object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)] transition-all duration-700 ease-in-out';
+                    
+                    item.appendChild(img);
+                    track.appendChild(item);
+                });
+
+                function goToSlide(index) {
+                    if (index < 0) index = products.length - 1;
+                    if (index >= products.length) index = 0;
+                    currentIndex = index;
+                    updateSlider();
+                }
+
+                function updateSlider() {
+                    const items = document.querySelectorAll('#slider-track > div');
+                    const bg = document.getElementById('slider-bg');
+                    const title = document.getElementById('slider-title');
+                    const subtitle = document.getElementById('slider-subtitle');
+
+                    const len = items.length;
+                    const isMobile = window.innerWidth < 768;
+
+                    items.forEach((item, i) => {
+                        let diff = i - currentIndex;
+                        if (diff < -Math.floor(len/2)) diff += len;
+                        if (diff > Math.floor(len/2)) diff -= len;
+
+                        const img = item.querySelector('img');
+
+                        if (diff === 0) {
+                            // Active item (Center split)
+                            item.style.left = '50%';
+                            item.style.zIndex = 30;
+                            item.style.opacity = 1;
+                            img.style.height = isMobile ? '50vh' : '85vh';
+                        } else if (diff === 1) {
+                            // Next item 1
+                            item.style.left = isMobile ? '85%' : '72%';
+                            item.style.zIndex = 25;
+                            item.style.opacity = 1;
+                            img.style.height = isMobile ? '35vh' : '65vh';
+                        } else if (diff === 2) {
+                            // Next item 2
+                            item.style.left = isMobile ? '110%' : '88%';
+                            item.style.zIndex = 20;
+                            item.style.opacity = 1;
+                            img.style.height = isMobile ? '25vh' : '50vh';
+                        } else if (diff === 3) {
+                            // Next item 3
+                            item.style.left = isMobile ? '130%' : '100%';
+                            item.style.zIndex = 15;
+                            item.style.opacity = 1;
+                            img.style.height = isMobile ? '20vh' : '40vh';
+                        } else if (diff === -1) {
+                            // Previous item (moves left and fades out behind bg)
+                            item.style.left = isMobile ? '15%' : '25%'; 
+                            item.style.zIndex = 10; // Below slider-bg (z-20)
+                            item.style.opacity = 0; 
+                            img.style.height = isMobile ? '35vh' : '65vh';
+                        } else {
+                            // Others (hidden far right or left)
+                            item.style.left = diff > 0 ? '150%' : '-50%';
+                            item.style.zIndex = 5;
+                            item.style.opacity = 0;
+                            img.style.height = '30vh';
+                        }
+                        
+                        // Center transform for all
+                        item.style.transform = 'translate(-50%, -50%)';
+                    });
+
+                    const product = products[currentIndex];
+                    bg.style.backgroundColor = product.color;
+                    
+                    title.style.opacity = 0;
+                    subtitle.style.opacity = 0;
+                    setTimeout(() => {
+                        title.innerText = product.name;
+                        subtitle.innerText = product.subtitle;
+                        title.style.opacity = 1;
+                        subtitle.style.opacity = 1;
+                    }, 300);
+                }
+
+                document.getElementById('prev-slide').onclick = () => goToSlide(currentIndex - 1);
+                document.getElementById('next-slide').onclick = () => goToSlide(currentIndex + 1);
+
+                // Initialize
+                setTimeout(updateSlider, 100);
+                window.addEventListener('resize', updateSlider);
+
+                // Touch/Swipe support
+                let touchStartX = 0;
+                let touchEndX = 0;
+                
+                track.addEventListener('touchstart', e => {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, {passive: true});
+                
+                track.addEventListener('touchend', e => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
+                }, {passive: true});
+                
+                function handleSwipe() {
+                    if (touchEndX < touchStartX - 50) {
+                        goToSlide(currentIndex + 1);
+                    }
+                    if (touchEndX > touchStartX + 50) {
+                        goToSlide(currentIndex - 1);
+                    }
+                }
+            }
         });
     </script>
 </body>
