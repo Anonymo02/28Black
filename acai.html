@@ -260,6 +260,17 @@
         document.addEventListener("DOMContentLoaded", () => {
             gsap.registerPlugin(ScrollTrigger);
             
+            // Close accordion by default on mobile
+            if (window.innerWidth < 768) {
+                const firstAccordion = document.querySelector('.accordion-item.active');
+                if (firstAccordion) {
+                    firstAccordion.classList.remove('active');
+                    firstAccordion.querySelector('.accordion-content').style.maxHeight = null;
+                    firstAccordion.querySelector('.accordion-content').style.paddingBottom = null;
+                    firstAccordion.querySelector('button span:first-child span').innerText = '+';
+                }
+            }
+            
             // Mobile Menu Logic
             const mobileMenu = document.getElementById('mobile-menu');
             const openMenuBtn = document.getElementById('open-menu');
@@ -349,7 +360,7 @@
                 // Move can slightly differently for section 3
                 tl.to(can, {
                     x: "0vw",
-                    y: "-10vh",
+                    y: "-15vh",
                     rotation: 5,
                     scale: 0.55,
                     ease: "power1.inOut"
