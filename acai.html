@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>28 CRNA | Açaí</title>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -61,7 +59,6 @@
 </head>
 <body class="font-body antialiased selection:bg-white selection:text-acai">
 
-    <!-- Mobile Menu -->
     <div id="mobile-menu" class="fixed inset-0 bg-black z-[100] transform translate-x-full transition-transform duration-500 flex flex-col justify-center items-center">
         <button id="close-menu" class="absolute top-6 right-6 font-heading text-4xl text-white">&times;</button>
         <div class="flex flex-col gap-8 font-heading text-4xl text-center uppercase text-white">
@@ -71,7 +68,6 @@
         </div>
     </div>
 
-    <!-- Navigation -->
     <nav class="fixed top-0 left-0 w-full p-6 md:p-10 flex justify-between items-center z-50">
         <a href="/"><img src="https://www.28black.com/wp-content/uploads/2025/07/logo-1-1.png" alt="28 Black Logo" class="h-8 md:h-10"></a>
         <div class="hidden md:flex gap-8 font-bold text-sm tracking-widest uppercase mix-blend-difference text-white">
@@ -82,18 +78,14 @@
         <button id="open-menu" class="md:hidden font-heading text-xl mix-blend-difference text-white">MENI</button>
     </nav>
 
-    <!-- Fixed Background Glow -->
     <div class="fixed inset-0 bg-radial-glow pointer-events-none z-0"></div>
 
-    <!-- Pinned Container for Scroll Animation -->
     <div id="scroll-container" class="relative w-full flex flex-col">
         
-        <!-- Sticky Can -->
         <div id="can-container" class="fixed top-0 left-0 w-full h-screen flex justify-center items-center z-30 pointer-events-none">
             <img id="animated-can" src="https://www.28black.com/wp-content/uploads/2025/07/acai.png" alt="Açaí Can" class="h-[50vh] md:h-[75vh] object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.5)]">
         </div>
 
-        <!-- Section 1: Hero -->
         <section class="relative w-full h-screen flex justify-center items-center z-10 overflow-hidden snap-start">
             <div class="flex flex-col items-center justify-center leading-none mt-20">
                 <h1 class="font-heading text-[25vw] md:text-[22vw] text-white tracking-wider m-0 p-0" style="line-height: 0.85;">AÇAÍ</h1>
@@ -102,12 +94,10 @@
             </div>
         </section>
 
-        <!-- Section 2: Info -->
         <section class="relative w-full min-h-[110vh] md:min-h-screen flex flex-col justify-start md:justify-center pt-[55vh] md:pt-0 z-20 snap-start">
             <h2 class="font-heading text-5xl md:text-[8rem] text-white text-center mb-10 w-full absolute top-24 md:top-32 left-0 tracking-wide z-10 drop-shadow-lg">28 BLACK AÇAÍ</h2>
             <div class="flex flex-col md:flex-row w-full justify-end md:justify-center items-center pb-16 md:pb-0 max-w-7xl mx-auto">
-                <div class="hidden md:block w-1/2"></div> <!-- Empty space for can -->
-                <div class="w-full md:w-1/2 px-6 md:pl-20 text-center md:text-left z-40">
+                <div class="hidden md:block w-1/2"></div> <div class="w-full md:w-1/2 px-6 md:pl-20 text-center md:text-left z-40">
                     <p class="text-lg md:text-3xl font-light leading-relaxed mb-8 md:mb-10 max-w-2xl text-white drop-shadow-md">
                         Voćna alternativa konvencionalnom energetskom piću. Energetsko piće sa voćnim ukusom Açaí bobice. Posebno voćno i osvežavajuće, manje veštačko i manje slatko.
                     </p>
@@ -115,15 +105,12 @@
             </div>
         </section>
 
-        <!-- Section 3: Details -->
         <section class="relative w-full min-h-[120vh] md:min-h-screen flex flex-col justify-start md:justify-center pt-[50vh] md:pt-0 z-20 snap-start">
             <div class="flex flex-col md:flex-row w-full justify-end md:justify-center items-center pb-12 md:pb-0 max-w-7xl mx-auto">
                 <div class="w-full md:w-1/2 px-6 md:pr-20 flex flex-col justify-center z-40 text-center md:text-left">
                     <h2 class="font-heading text-3xl md:text-5xl text-white mb-6 md:mb-10 leading-tight drop-shadow-md">Ultimativni 28 BLACK ukus.</h2>
                     
-                    <!-- Accordion -->
                     <div class="w-full max-w-xl border-t border-white/30 mx-auto md:mx-0 text-left bg-black/20 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-4 md:p-0 rounded-xl md:rounded-none">
-                        <!-- Item 1 -->
                         <div class="accordion-item border-b border-white/30 active">
                             <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none" onclick="toggleAccordion(this)">
                                 <span class="font-bold text-xl uppercase tracking-wider flex items-center gap-4">
@@ -137,7 +124,6 @@
                                 </p>
                             </div>
                         </div>
-                        <!-- Item 2 -->
                         <div class="accordion-item border-b border-white/30">
                             <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none" onclick="toggleAccordion(this)">
                                 <span class="font-bold text-xl uppercase tracking-wider flex items-center gap-4">
@@ -156,7 +142,6 @@
                                 </p>
                             </div>
                         </div>
-                        <!-- Item 3 -->
                         <div class="accordion-item border-b border-white/30">
                             <button class="w-full py-6 flex justify-between items-center text-left focus:outline-none" onclick="toggleAccordion(this)">
                                 <span class="font-bold text-xl uppercase tracking-wider flex items-center gap-4">
@@ -171,23 +156,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="hidden md:block w-1/2"></div> <!-- Empty space for can -->
-            </div>
+                <div class="hidden md:block w-1/2"></div> </div>
         </section>
-    </div> <!-- End of scroll-container -->
-
-        <!-- Product Slider Section -->
-        <section id="product-slider" class="relative w-full h-screen flex overflow-hidden z-40 bg-black snap-start">
-            <!-- Left Color Background -->
+    </div> <section id="product-slider" class="relative w-full h-screen flex overflow-hidden z-40 bg-black snap-start">
             <div id="slider-bg" class="absolute top-0 left-0 w-full md:w-1/2 h-1/2 md:h-full transition-colors duration-500 z-20" style="background-color: #e65c7b;"></div>
             
-            <!-- Left Content (Text and Buttons) -->
             <div class="absolute top-0 left-0 w-full md:w-1/2 h-1/2 md:h-full flex flex-col justify-center px-8 md:px-20 pt-24 md:pt-0 z-40 pointer-events-none">
                 <h3 id="slider-subtitle" class="text-white font-bold tracking-widest uppercase text-sm md:text-lg mb-2 drop-shadow-md transition-opacity duration-300">AÇAÍ ZERO</h3>
                 <h2 id="slider-title" class="font-heading text-6xl md:text-8xl text-white mb-8 drop-shadow-lg transition-opacity duration-300">Açaí Zero</h2>
                 <a href="drinks.html" class="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-bold py-4 px-8 tracking-widest uppercase text-sm transition-colors w-max pointer-events-auto">OTKRIJ SADA</a>
                 
-                <!-- Navigation Arrows -->
                 <div class="flex gap-2 mt-8 md:mt-12">
                     <button id="prev-slide" class="w-12 h-12 flex items-center justify-center bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white transition-colors pointer-events-auto">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
@@ -198,13 +176,10 @@
                 </div>
             </div>
 
-            <!-- Cans Slider Track -->
             <div id="slider-track" class="absolute top-0 left-0 w-full h-full pointer-events-none">
-                <!-- Cans will be injected here -->
-            </div>
+                </div>
         </section>
 
-    <!-- Footer -->
     <footer class="relative bg-black pt-20 pb-10 overflow-hidden border-t border-white/10 z-40 snap-end">
         <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-col md:flex-row justify-between items-center">
@@ -223,7 +198,6 @@
         </div>
     </footer>
 
-    <!-- GSAP & ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
@@ -234,7 +208,6 @@
             const content = item.querySelector('.accordion-content');
             const iconSpan = button.querySelector('span:first-child span');
             
-            // Close all others
             document.querySelectorAll('.accordion-item').forEach(otherItem => {
                 if (otherItem !== item && otherItem.classList.contains('active')) {
                     otherItem.classList.remove('active');
@@ -244,7 +217,6 @@
                 }
             });
 
-            // Toggle current
             item.classList.toggle('active');
             if (item.classList.contains('active')) {
                 content.style.maxHeight = content.scrollHeight + 30 + "px";
@@ -260,7 +232,6 @@
         document.addEventListener("DOMContentLoaded", () => {
             gsap.registerPlugin(ScrollTrigger);
             
-            // Close accordion by default on mobile
             if (window.innerWidth < 768) {
                 const firstAccordion = document.querySelector('.accordion-item.active');
                 if (firstAccordion) {
@@ -271,33 +242,38 @@
                 }
             }
             
-            // Mobile Menu Logic
             const mobileMenu = document.getElementById('mobile-menu');
             const openMenuBtn = document.getElementById('open-menu');
             const closeMenuBtn = document.getElementById('close-menu');
             const mobileLinks = document.querySelectorAll('.mobile-link');
 
             if(openMenuBtn && closeMenuBtn && mobileMenu) {
-                openMenuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.remove('translate-x-full');
-                });
-                closeMenuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.add('translate-x-full');
-                });
-                mobileLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('translate-x-full');
-                    });
-                });
+                openMenuBtn.addEventListener('click', () => { mobileMenu.classList.remove('translate-x-full'); });
+                closeMenuBtn.addEventListener('click', () => { mobileMenu.classList.add('translate-x-full'); });
+                mobileLinks.forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.add('translate-x-full'); }); });
             }
             
+            // KLJUČNA IZMENA: Pretvaramo fiksnu limenku u apsolutnu da bi mogla da STANE na kraju putanje
+            const canContainer = document.getElementById('can-container');
+            if (canContainer) {
+                canContainer.classList.remove('fixed');
+                canContainer.classList.add('absolute');
+            }
+
             const can = document.getElementById('animated-can');
-            
-            // GSAP MatchMedia for responsive animations
+            const section3 = document.querySelectorAll('section')[2]; // Pronalazimo treću sekciju
             let mm = gsap.matchMedia();
 
             mm.add("(min-width: 768px)", () => {
-                // Desktop animations
+                // Desktop - Pinujemo celom dužinom kontejnera
+                ScrollTrigger.create({
+                    trigger: "#scroll-container",
+                    start: "top top",
+                    end: "bottom bottom",
+                    pin: "#can-container",
+                    pinSpacing: false
+                });
+
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: "#scroll-container",
@@ -307,25 +283,10 @@
                     }
                 });
 
-                // Section 1 to Section 2
-                tl.to(can, {
-                    x: "-22vw",
-                    y: "5vh",
-                    rotation: -15,
-                    scale: 0.9,
-                    ease: "power1.inOut"
-                }, 0);
+                tl.to(can, { x: "-22vw", y: "5vh", rotation: -15, scale: 0.9, ease: "power1.inOut" }, 0);
+                tl.to(can, { x: "22vw", y: "0vh", rotation: 0, scale: 1, ease: "power1.inOut" }, 0.5);
 
-                // Section 2 to Section 3
-                tl.to(can, {
-                    x: "22vw",
-                    y: "0vh",
-                    rotation: 0,
-                    scale: 1,
-                    ease: "power1.inOut"
-                }, 0.5);
-
-                gsap.to("#can-container", {
+                gsap.to(canContainer, {
                     scrollTrigger: {
                         trigger: "#product-slider",
                         start: "top bottom",
@@ -338,17 +299,27 @@
             });
 
             mm.add("(max-width: 767px)", () => {
-                // Mobile animations
+                // MOBILNI TELEFON: Limenka putuje SAMO do početka Treće sekcije, tu staje!
+                ScrollTrigger.create({
+                    trigger: "#scroll-container",
+                    start: "top top",
+                    endTrigger: section3,
+                    end: "top top", // Otkačinje se sa ekrana čim treća sekcija dođe na vrh
+                    pin: "#can-container",
+                    pinSpacing: false
+                });
+
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: "#scroll-container",
                         start: "top top",
-                        end: "bottom bottom",
+                        endTrigger: section3,
+                        end: "top top", // I animacija se zaustavlja tačno ovde
                         scrub: 1,
                     }
                 });
 
-                // Move can up to make room for text at the bottom
+                // Od prve do druge sekcije
                 tl.to(can, {
                     x: "0vw",
                     y: "-10vh",
@@ -357,25 +328,16 @@
                     ease: "power1.inOut"
                 }, 0);
 
-                // Move can slightly differently for section 3
+                // KRAJ PUTANJE: Limenka zauzima svoje mesto iznad "Ultimativni..." naslova i prestaje da se mrda!
                 tl.to(can, {
                     x: "0vw",
-                    y: "-15vh",
-                    rotation: 5,
-                    scale: 0.55,
+                    y: "-12vh",
+                    rotation: 0,
+                    scale: 0.45,
                     ease: "power1.inOut"
                 }, 0.5);
-
-                gsap.to("#can-container", {
-                    scrollTrigger: {
-                        trigger: "#product-slider",
-                        start: "top bottom",
-                        end: "top center",
-                        scrub: true
-                    },
-                    opacity: 0,
-                    y: -50
-                });
+                
+                // Brisanje stare tranzicije ka slajderu jer će sada cela limenka prirodno odskrolovati gore
             });
 
             // --- Infinite Loop Slider Logic ---
@@ -395,7 +357,6 @@
             const track = document.getElementById('slider-track');
 
             if (track) {
-                // Inject items
                 products.forEach((product, index) => {
                     const item = document.createElement('div');
                     item.className = 'absolute top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-in-out cursor-pointer flex justify-center items-center pointer-events-auto';
@@ -423,7 +384,6 @@
                     const bg = document.getElementById('slider-bg');
                     const title = document.getElementById('slider-title');
                     const subtitle = document.getElementById('slider-subtitle');
-
                     const len = items.length;
                     const isMobile = window.innerWidth < 768;
 
@@ -435,44 +395,24 @@
                         const img = item.querySelector('img');
 
                         if (diff === 0) {
-                            // Active item (Center split)
-                            item.style.left = '50%';
-                            item.style.zIndex = 30;
-                            item.style.opacity = 1;
+                            item.style.left = '50%'; item.style.zIndex = 30; item.style.opacity = 1;
                             img.style.height = isMobile ? '50vh' : '85vh';
                         } else if (diff === 1) {
-                            // Next item 1
-                            item.style.left = isMobile ? '85%' : '72%';
-                            item.style.zIndex = 25;
-                            item.style.opacity = 1;
+                            item.style.left = isMobile ? '85%' : '72%'; item.style.zIndex = 25; item.style.opacity = 1;
                             img.style.height = isMobile ? '35vh' : '65vh';
                         } else if (diff === 2) {
-                            // Next item 2
-                            item.style.left = isMobile ? '110%' : '88%';
-                            item.style.zIndex = 20;
-                            item.style.opacity = 1;
+                            item.style.left = isMobile ? '110%' : '88%'; item.style.zIndex = 20; item.style.opacity = 1;
                             img.style.height = isMobile ? '25vh' : '50vh';
                         } else if (diff === 3) {
-                            // Next item 3
-                            item.style.left = isMobile ? '130%' : '100%';
-                            item.style.zIndex = 15;
-                            item.style.opacity = 1;
+                            item.style.left = isMobile ? '130%' : '100%'; item.style.zIndex = 15; item.style.opacity = 1;
                             img.style.height = isMobile ? '20vh' : '40vh';
                         } else if (diff === -1) {
-                            // Previous item (moves left and fades out behind bg)
-                            item.style.left = isMobile ? '15%' : '25%'; 
-                            item.style.zIndex = 10; // Below slider-bg (z-20)
-                            item.style.opacity = 0; 
+                            item.style.left = isMobile ? '15%' : '25%'; item.style.zIndex = 10; item.style.opacity = 0; 
                             img.style.height = isMobile ? '35vh' : '65vh';
                         } else {
-                            // Others (hidden far right or left)
-                            item.style.left = diff > 0 ? '150%' : '-50%';
-                            item.style.zIndex = 5;
-                            item.style.opacity = 0;
+                            item.style.left = diff > 0 ? '150%' : '-50%'; item.style.zIndex = 5; item.style.opacity = 0;
                             img.style.height = '30vh';
                         }
-                        
-                        // Center transform for all
                         item.style.transform = 'translate(-50%, -50%)';
                     });
 
@@ -492,30 +432,16 @@
                 document.getElementById('prev-slide').onclick = () => goToSlide(currentIndex - 1);
                 document.getElementById('next-slide').onclick = () => goToSlide(currentIndex + 1);
 
-                // Initialize
                 setTimeout(updateSlider, 100);
                 window.addEventListener('resize', updateSlider);
 
-                // Touch/Swipe support
-                let touchStartX = 0;
-                let touchEndX = 0;
-                
-                track.addEventListener('touchstart', e => {
-                    touchStartX = e.changedTouches[0].screenX;
-                }, {passive: true});
-                
-                track.addEventListener('touchend', e => {
-                    touchEndX = e.changedTouches[0].screenX;
-                    handleSwipe();
-                }, {passive: true});
+                let touchStartX = 0; let touchEndX = 0;
+                track.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, {passive: true});
+                track.addEventListener('touchend', e => { touchEndX = e.changedTouches[0].screenX; handleSwipe(); }, {passive: true});
                 
                 function handleSwipe() {
-                    if (touchEndX < touchStartX - 50) {
-                        goToSlide(currentIndex + 1);
-                    }
-                    if (touchEndX > touchStartX + 50) {
-                        goToSlide(currentIndex - 1);
-                    }
+                    if (touchEndX < touchStartX - 50) goToSlide(currentIndex + 1);
+                    if (touchEndX > touchStartX + 50) goToSlide(currentIndex - 1);
                 }
             }
         });
