@@ -28,8 +28,11 @@
         }
     </script>
     <style>
+        :root {
+            --bg-color: #c83246;
+        }
         body {
-            background-color: #c83246;
+            background-color: var(--bg-color);
             color: #ffffff;
             overflow-x: hidden;
         }
@@ -56,6 +59,25 @@
             background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 50%);
         }
     </style>
+    <script>
+        const productsData = {
+            'zero': { id: 'zero', name: 'Açaí Zero', subtitle: 'AÇAÍ ZERO', color: '#e65c7b', img: 'https://www.28black.com/wp-content/uploads/2025/07/Acai-Zero.png' },
+            'acai': { id: 'acai', name: 'Açaí', subtitle: 'AÇAÍ', color: '#c83246', img: 'https://www.28black.com/wp-content/uploads/2025/07/acai.png' },
+            'waldmeister': { id: 'waldmeister', name: 'Waldmeister', subtitle: 'WALDMEISTER', color: '#78c846', img: 'https://www.28black.com/wp-content/uploads/2025/07/28B_Dose_Waldmeister_iso_matt_DE.png' },
+            'sourcherry': { id: 'sourcherry', name: 'Sour Cherry', subtitle: 'SOUR CHERRY', color: '#c82828', img: 'https://www.28black.com/wp-content/uploads/2025/07/Sour-Cherry.png' },
+            'limetteminze': { id: 'limetteminze', name: 'Limette-Minze', subtitle: 'LIMETTE-MINZE', color: '#8cd264', img: 'https://www.28black.com/wp-content/uploads/2025/07/Limette-Minze.png' },
+            'sourmangokiwi': { id: 'sourmangokiwi', name: 'Sour Mango-Kiwi', subtitle: 'SOUR MANGO-KIWI', color: '#f0c846', img: 'https://www.28black.com/wp-content/uploads/2025/07/Sour-Mango-Kiwi.png' },
+            'honigmelone': { id: 'honigmelone', name: 'Honigmelone', subtitle: 'HONIGMELONE', color: '#f0dc46', img: 'https://www.28black.com/wp-content/uploads/2025/07/Honigmelone-1.png' },
+            'classic': { id: 'classic', name: 'Classic Energy Taste', subtitle: 'CLASSIC ENERGY TASTE', color: '#8c96a0', img: 'https://www.28black.com/wp-content/uploads/2025/07/Classic.png' },
+            'ananaskokos': { id: 'ananaskokos', name: 'Ananas-Kokos', subtitle: 'ANANAS-KOKOS', color: '#64b4b4', img: 'https://www.28black.com/wp-content/uploads/2025/10/28B_Ananas_Kokos.png' }
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const drinkId = urlParams.get('drink') || 'acai';
+        const currentDrink = productsData[drinkId] || productsData['acai'];
+
+        document.documentElement.style.setProperty('--bg-color', currentDrink.color);
+    </script>
 </head>
 <body class="font-body antialiased selection:bg-white selection:text-acai">
 
@@ -87,19 +109,19 @@
         </div>
 
         <section class="relative w-full h-screen flex justify-center items-center z-10 overflow-hidden snap-start">
-            <div class="flex flex-col items-center justify-center leading-none mt-20">
-                <h1 class="font-heading text-[25vw] md:text-[22vw] text-white tracking-wider m-0 p-0" style="line-height: 0.85;">AÇAÍ</h1>
-                <h1 class="font-heading text-[25vw] md:text-[22vw] text-outline tracking-wider m-0 p-0" style="line-height: 0.85;">AÇAÍ</h1>
-                <h1 class="font-heading text-[25vw] md:text-[22vw] text-outline tracking-wider m-0 p-0" style="line-height: 0.85;">AÇAÍ</h1>
+            <div class="flex flex-col items-center justify-center leading-none mt-20 w-full px-4">
+                <h1 id="hero-title-1" class="font-heading text-[25vw] md:text-[22vw] text-white tracking-wider m-0 p-0 text-center w-full" style="line-height: 0.85;">AÇAÍ</h1>
+                <h1 id="hero-title-2" class="font-heading text-[25vw] md:text-[22vw] text-outline tracking-wider m-0 p-0 text-center w-full" style="line-height: 0.85;">AÇAÍ</h1>
+                <h1 id="hero-title-3" class="font-heading text-[25vw] md:text-[22vw] text-outline tracking-wider m-0 p-0 text-center w-full" style="line-height: 0.85;">AÇAÍ</h1>
             </div>
         </section>
 
         <section class="relative w-full min-h-[110vh] md:min-h-screen flex flex-col justify-start md:justify-center pt-[55vh] md:pt-0 z-20 snap-start">
-            <h2 class="font-heading text-5xl md:text-[8rem] text-white text-center mb-10 w-full absolute top-24 md:top-32 left-0 tracking-wide z-10 drop-shadow-lg">28 BLACK AÇAÍ</h2>
+            <h2 id="section2-title" class="font-heading text-5xl md:text-[8rem] text-white text-center mb-10 w-full absolute top-24 md:top-32 left-0 tracking-wide z-10 drop-shadow-lg">28 BLACK AÇAÍ</h2>
             <div class="flex flex-col md:flex-row w-full justify-end md:justify-center items-center pb-16 md:pb-0 max-w-7xl mx-auto">
                 <div class="hidden md:block w-1/2"></div> <div class="w-full md:w-1/2 px-6 md:pl-20 text-center md:text-left z-40">
                     <p class="text-lg md:text-3xl font-light leading-relaxed mb-8 md:mb-10 max-w-2xl text-white drop-shadow-md">
-                        Svetski hit je konačno tu – popularne Açaí bobice su stigle i kod nas! Otkrijte pravu voćnu alternativu konvencionalnom energetskom piću. 28 BLACK je jedinstveno energetsko piće sa autentičnim voćnim ukusom moćne Açaí bobice. Posebno voćno, neodoljivo osvežavajuće i stvoreno da vam pruži energiju sa stilom.
+                        Voćna alternativa konvencionalnom energetskom piću. Energetsko piće sa voćnim ukusom Açaí bobice. Posebno voćno i osvežavajuće, manje veštačko i manje slatko.
                     </p>
                 </div>
             </div>
@@ -108,7 +130,7 @@
         <section class="relative w-full min-h-[120vh] md:min-h-screen flex flex-col justify-start md:justify-center pt-[50vh] md:pt-0 z-20 snap-start">
             <div class="flex flex-col md:flex-row w-full justify-end md:justify-center items-center pb-12 md:pb-0 max-w-7xl mx-auto">
                 <div class="w-full md:w-1/2 px-6 md:pr-20 flex flex-col justify-center z-40 text-center md:text-left">
-                    <h2 class="font-heading text-3xl md:text-5xl text-white mb-6 md:mb-10 leading-tight drop-shadow-md">Ultimativni 28 BLACK ukus.</h2>
+                    <h2 id="section3-title" class="font-heading text-3xl md:text-5xl text-white mb-6 md:mb-10 leading-tight drop-shadow-md">Ultimativni 28 BLACK ukus.</h2>
                     
                     <div class="w-full max-w-xl border-t border-white/30 mx-auto md:mx-0 text-left bg-black/20 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-4 md:p-0 rounded-xl md:rounded-none">
                         <div class="accordion-item border-b border-white/30 active">
@@ -138,12 +160,7 @@
                                     Ugljeni hidrati: 11 g<br>
                                     od toga šećeri: 11 g<br>
                                     Proteini: 0 g<br>
-                                    So: 0 g<br>
-                                    Vitamin C: 24 mg<br>
-                                    Niacin: 5,0 mg<br>
-                                    Vitamin B6: 0,5 mg<br>
-                                    Vitamin B12: 0,8 µg<br>
-                                    Pantotenska kiselina: 1,8 mg
+                                    So: 0 g
                                 </p>
                             </div>
                         </div>
@@ -237,6 +254,35 @@
         document.addEventListener("DOMContentLoaded", () => {
             gsap.registerPlugin(ScrollTrigger);
             
+            // --- Dynamic Content Update ---
+            document.getElementById('animated-can').src = currentDrink.img;
+            
+            // Adjust font size for long subtitles (like CLASSIC ENERGY TASTE)
+            let heroFontSize = "text-[25vw] md:text-[22vw]";
+            if (currentDrink.subtitle.length > 15) {
+                heroFontSize = "text-[15vw] md:text-[12vw]";
+            } else if (currentDrink.subtitle.length > 10) {
+                heroFontSize = "text-[18vw] md:text-[15vw]";
+            }
+            
+            const hero1 = document.getElementById('hero-title-1');
+            const hero2 = document.getElementById('hero-title-2');
+            const hero3 = document.getElementById('hero-title-3');
+            
+            hero1.innerText = currentDrink.subtitle;
+            hero2.innerText = currentDrink.subtitle;
+            hero3.innerText = currentDrink.subtitle;
+            
+            hero1.className = `font-heading ${heroFontSize} text-white tracking-wider m-0 p-0 text-center w-full`;
+            hero2.className = `font-heading ${heroFontSize} text-outline tracking-wider m-0 p-0 text-center w-full`;
+            hero3.className = `font-heading ${heroFontSize} text-outline tracking-wider m-0 p-0 text-center w-full`;
+
+            document.getElementById('section2-title').innerText = `28 BLACK ${currentDrink.subtitle}`;
+            document.getElementById('section3-title').innerText = `Ultimativni 28 BLACK ukus.`; // Keep static for now or change based on product
+            
+            // --- End Dynamic Content Update ---
+            document.title = `28 CRNA | ${currentDrink.name}`;
+
             if (window.innerWidth < 768) {
                 const firstAccordion = document.querySelector('.accordion-item.active');
                 if (firstAccordion) {
@@ -346,19 +392,10 @@
             });
 
             // --- Infinite Loop Slider Logic ---
-            const products = [
-                { id: 'zero', name: 'Açaí Zero', subtitle: 'AÇAÍ ZERO', color: '#e65c7b', img: 'https://www.28black.com/wp-content/uploads/2025/07/Acai-Zero.png' },
-                { id: 'acai', name: 'Açaí', subtitle: 'AÇAÍ', color: '#c83246', img: 'https://www.28black.com/wp-content/uploads/2025/07/acai.png' },
-                { id: 'waldmeister', name: 'Waldmeister', subtitle: 'WALDMEISTER', color: '#78c846', img: 'https://www.28black.com/wp-content/uploads/2025/07/28B_Dose_Waldmeister_iso_matt_DE.png' },
-                { id: 'sourcherry', name: 'Sour Cherry', subtitle: 'SOUR CHERRY', color: '#c82828', img: 'https://www.28black.com/wp-content/uploads/2025/07/Sour-Cherry.png' },
-                { id: 'limetteminze', name: 'Limette-Minze', subtitle: 'LIMETTE-MINZE', color: '#8cd264', img: 'https://www.28black.com/wp-content/uploads/2025/07/Limette-Minze.png' },
-                { id: 'sourmangokiwi', name: 'Sour Mango-Kiwi', subtitle: 'SOUR MANGO-KIWI', color: '#f0c846', img: 'https://www.28black.com/wp-content/uploads/2025/07/Sour-Mango-Kiwi.png' },
-                { id: 'honigmelone', name: 'Honigmelone', subtitle: 'HONIGMELONE', color: '#f0dc46', img: 'https://www.28black.com/wp-content/uploads/2025/07/Honigmelone-1.png' },
-                { id: 'classic', name: 'Classic Energy Taste', subtitle: 'CLASSIC ENERGY TASTE', color: '#8c96a0', img: 'https://www.28black.com/wp-content/uploads/2025/07/Classic.png' },
-                { id: 'ananaskokos', name: 'Ananas-Kokos', subtitle: 'ANANAS-KOKOS', color: '#64b4b4', img: 'https://www.28black.com/wp-content/uploads/2025/10/28B_Ananas_Kokos.png' }
-            ];
+            const products = Object.values(productsData);
 
-            let currentIndex = 0;
+            let currentIndex = products.findIndex(p => p.id === currentDrink.id);
+            if (currentIndex === -1) currentIndex = 0;
             const track = document.getElementById('slider-track');
 
             if (track) {
