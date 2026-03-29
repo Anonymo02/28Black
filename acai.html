@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="sr" class="scroll-smooth" style="scroll-snap-type: y mandatory;">
+<html lang="sr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>28 CRNA | Açaí</title>
+    <title>28 Black | Energetsko piće</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,13 +29,20 @@
     </script>
     <style>
         :root {
-            --bg-color: #c83246;
+            /* Background color will be set dynamically via JS */
         }
-        body {
-            background-color: var(--bg-color);
+        html, body {
+            background-color: var(--bg-color, #0a0a0a); /* Fallback to dark if not set */
             color: #ffffff;
-            overflow-x: hidden;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
         }
+        
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
         .text-outline {
             color: transparent;
             -webkit-text-stroke: 2px #ffffff;
@@ -60,6 +67,11 @@
         }
     </style>
     <script>
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+        
         const productsData = {
             'zero': { id: 'zero', name: 'Açaí Zero', subtitle: 'AÇAÍ ZERO', color: '#e65c7b', img: 'https://www.28black.com/wp-content/uploads/2025/07/Acai-Zero.png' },
             'acai': { id: 'acai', name: 'Açaí', subtitle: 'AÇAÍ', color: '#c83246', img: 'https://www.28black.com/wp-content/uploads/2025/07/acai.png' },
@@ -81,12 +93,29 @@
 </head>
 <body class="font-body antialiased selection:bg-white selection:text-acai">
 
-    <div id="mobile-menu" class="fixed inset-0 bg-black z-[100] transform translate-x-full transition-transform duration-500 flex flex-col justify-center items-center">
-        <button id="close-menu" class="absolute top-6 right-6 font-heading text-4xl text-white">&times;</button>
-        <div class="flex flex-col gap-8 font-heading text-4xl text-center uppercase text-white">
-            <a href="drinks.html" class="hover:text-neon transition-colors mobile-link">Proizvodi</a>
-            <a href="/#sastojci" class="hover:text-neon transition-colors mobile-link">Sastojci</a>
-            <a href="/#prica" class="hover:text-neon transition-colors mobile-link">Priča</a>
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-[100] transform translate-x-full transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] flex flex-col">
+        <div class="flex justify-between items-center p-6 md:p-10 w-full">
+            <a href="/"><img src="https://www.28black.com/wp-content/uploads/2025/07/logo-1-1.png" alt="28 Black Logo" class="h-8"></a>
+            <button id="close-menu" class="font-heading text-5xl text-white hover:text-neon transition-colors leading-none">&times;</button>
+        </div>
+        <div class="flex-1 flex flex-col justify-center items-center gap-8 md:gap-12 font-heading text-5xl md:text-7xl text-center uppercase text-white leading-normal">
+            <a href="/drinks.html" class="mobile-link relative group overflow-hidden block">
+                <span class="block transition-transform duration-500 ease-out group-hover:-translate-y-full">Proizvodi</span>
+                <span class="absolute inset-0 block text-neon transition-transform duration-500 ease-out translate-y-full group-hover:translate-y-0">Proizvodi</span>
+            </a>
+            <a href="/#sastojci" class="mobile-link relative group overflow-hidden block">
+                <span class="block transition-transform duration-500 ease-out group-hover:-translate-y-full">Sastojci</span>
+                <span class="absolute inset-0 block text-neon transition-transform duration-500 ease-out translate-y-full group-hover:translate-y-0">Sastojci</span>
+            </a>
+            <a href="/#prica" class="mobile-link relative group overflow-hidden block">
+                <span class="block transition-transform duration-500 ease-out group-hover:-translate-y-full">Priča</span>
+                <span class="absolute inset-0 block text-neon transition-transform duration-500 ease-out translate-y-full group-hover:translate-y-0">Priča</span>
+            </a>
+        </div>
+        <div class="p-10 flex justify-center gap-8 text-sm font-bold tracking-widest uppercase text-gray-500">
+            <a href="#" class="hover:text-white transition-colors">Instagram</a>
+            <a href="#" class="hover:text-white transition-colors">TikTok</a>
+            <a href="#" class="hover:text-white transition-colors">YouTube</a>
         </div>
     </div>
 
@@ -94,8 +123,8 @@
         <a href="/"><img src="https://www.28black.com/wp-content/uploads/2025/07/logo-1-1.png" alt="28 Black Logo" class="h-8 md:h-10"></a>
         <div class="hidden md:flex gap-8 font-bold text-sm tracking-widest uppercase mix-blend-difference text-white">
             <a href="drinks.html" class="hover:text-neon transition-colors">Proizvodi</a>
-            <a href="/#sastojci" class="hover:text-neon transition-colors">Sastojci</a>
-            <a href="/#prica" class="hover:text-neon transition-colors">Priča</a>
+            <a href="#sastojci" class="hover:text-neon transition-colors">Sastojci</a>
+            <a href="#prica" class="hover:text-neon transition-colors">Priča</a>
         </div>
         <button id="open-menu" class="md:hidden font-heading text-xl mix-blend-difference text-white">MENI</button>
     </nav>
@@ -105,7 +134,7 @@
     <div id="scroll-container" class="relative w-full flex flex-col">
         
         <div id="can-container" class="fixed top-0 left-0 w-full h-screen flex justify-center items-center z-30 pointer-events-none">
-            <img id="animated-can" src="https://www.28black.com/wp-content/uploads/2025/07/acai.png" alt="Açaí Can" class="h-[50vh] md:h-[75vh] object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.5)]">
+            <img id="animated-can" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="28 Black Can" class="h-[50vh] md:h-[75vh] object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.5)]">
         </div>
 
         <section class="relative w-full h-screen flex justify-center items-center z-10 overflow-hidden snap-start">
@@ -251,11 +280,22 @@
             }
         }
 
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 0);
+            setTimeout(() => {
+                document.documentElement.classList.add('scroll-smooth');
+                document.documentElement.style.scrollSnapType = 'y mandatory';
+            }, 100);
+        });
+
         document.addEventListener("DOMContentLoaded", () => {
+            window.scrollTo(0, 0);
             gsap.registerPlugin(ScrollTrigger);
             
             // --- Dynamic Content Update ---
-            document.getElementById('animated-can').src = currentDrink.img;
+            const animatedCan = document.getElementById('animated-can');
+            animatedCan.src = currentDrink.img;
+            animatedCan.alt = currentDrink.name + " Can";
             
             // Adjust font size for long subtitles (like CLASSIC ENERGY TASTE)
             let heroFontSize = "text-[25vw] md:text-[22vw]";
