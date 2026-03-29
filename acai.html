@@ -32,7 +32,7 @@
             /* Background color will be set dynamically via JS */
         }
         html, body {
-            background-color: var(--bg-color, #0a0a0a); /* Fallback to dark if not set */
+            background-color: var(--bg-color, #0a0a0a);
             color: #ffffff;
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
@@ -67,10 +67,16 @@
         }
     </style>
     <script>
+        // Osiguravamo da se skrol ne pamti prilikom osvežavanja
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
         window.scrollTo(0, 0);
+
+        // Vraćanje na početak pre nego što se stranica osveži
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        };
         
         const productsData = {
             'zero': { id: 'zero', name: 'Açaí Zero', subtitle: 'AÇAÍ ZERO', color: '#e65c7b', img: 'https://www.28black.com/wp-content/uploads/2025/07/Acai-Zero.png' },
@@ -137,7 +143,7 @@
             <img id="animated-can" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="28 Black Can" class="h-[50vh] md:h-[75vh] object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.5)]">
         </div>
 
-        <section class="relative w-full h-screen flex justify-center items-center z-10 overflow-hidden snap-start">
+        <section class="relative w-full h-screen flex justify-center items-center z-10 overflow-hidden">
             <div class="flex flex-col items-center justify-center leading-none mt-20 w-full px-4">
                 <h1 id="hero-title-1" class="font-heading text-[25vw] md:text-[22vw] text-white tracking-wider m-0 p-0 text-center w-full" style="line-height: 0.85;">AÇAÍ</h1>
                 <h1 id="hero-title-2" class="font-heading text-[25vw] md:text-[22vw] text-outline tracking-wider m-0 p-0 text-center w-full" style="line-height: 0.85;">AÇAÍ</h1>
@@ -145,7 +151,7 @@
             </div>
         </section>
 
-        <section class="relative w-full min-h-[110vh] md:min-h-screen flex flex-col justify-start md:justify-center pt-[55vh] md:pt-0 z-20 snap-start">
+        <section class="relative w-full min-h-[110vh] md:min-h-screen flex flex-col justify-start md:justify-center pt-[55vh] md:pt-0 z-20">
             <h2 id="section2-title" class="font-heading text-5xl md:text-[8rem] text-white text-center mb-10 w-full absolute top-24 md:top-32 left-0 tracking-wide z-10 drop-shadow-lg">28 BLACK AÇAÍ</h2>
             <div class="flex flex-col md:flex-row w-full justify-end md:justify-center items-center pb-16 md:pb-0 max-w-7xl mx-auto">
                 <div class="hidden md:block w-1/2"></div> <div class="w-full md:w-1/2 px-6 md:pl-20 text-center md:text-left z-40">
@@ -156,7 +162,7 @@
             </div>
         </section>
 
-        <section class="relative w-full min-h-[120vh] md:min-h-screen flex flex-col justify-start md:justify-center pt-[50vh] md:pt-0 z-20 snap-start">
+        <section class="relative w-full min-h-[120vh] md:min-h-screen flex flex-col justify-start md:justify-center pt-[50vh] md:pt-0 z-20">
             <div class="flex flex-col md:flex-row w-full justify-end md:justify-center items-center pb-12 md:pb-0 max-w-7xl mx-auto">
                 <div class="w-full md:w-1/2 px-6 md:pr-20 flex flex-col justify-center z-40 text-center md:text-left">
                     <h2 id="section3-title" class="font-heading text-3xl md:text-5xl text-white mb-6 md:mb-10 leading-tight drop-shadow-md">Ultimativni 28 BLACK ukus.</h2>
@@ -207,9 +213,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="hidden md:block w-1/2"></div> </div>
+                <div class="hidden md:block w-1/2"></div> 
+            </div>
         </section>
-    </div> <section id="product-slider" class="relative w-full h-screen flex overflow-hidden z-40 bg-black snap-start">
+    </div> 
+    
+    <section id="product-slider" class="relative w-full h-screen flex overflow-hidden z-40 bg-black">
             <div id="slider-bg" class="absolute top-0 left-0 w-full md:w-1/2 h-1/2 md:h-full transition-colors duration-500 z-20" style="background-color: #e65c7b;"></div>
             
             <div class="absolute top-0 left-0 w-full md:w-1/2 h-1/2 md:h-full flex flex-col justify-center px-8 md:px-20 pt-24 md:pt-0 z-40 pointer-events-none">
@@ -229,9 +238,9 @@
 
             <div id="slider-track" class="absolute top-0 left-0 w-full h-full pointer-events-none">
                 </div>
-        </section>
+    </section>
 
-    <footer class="relative bg-black pt-20 pb-10 overflow-hidden border-t border-white/10 z-40 snap-end">
+    <footer class="relative bg-black pt-20 pb-10 overflow-hidden border-t border-white/10 z-40">
         <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <img src="https://www.28black.com/wp-content/uploads/2025/07/logo-1-1.png" alt="28 Black Logo" class="h-8 mb-6 md:mb-0">
@@ -282,10 +291,7 @@
 
         window.addEventListener('load', () => {
             window.scrollTo(0, 0);
-            setTimeout(() => {
-                document.documentElement.classList.add('scroll-smooth');
-                document.documentElement.style.scrollSnapType = 'y mandatory';
-            }, 100);
+            // Uklonili smo dodavanje "scroll-smooth" i "scrollSnapType" koji su blokirali GSAP
         });
 
         document.addEventListener("DOMContentLoaded", () => {
@@ -318,7 +324,7 @@
             hero3.className = `font-heading ${heroFontSize} text-outline tracking-wider m-0 p-0 text-center w-full`;
 
             document.getElementById('section2-title').innerText = `28 BLACK ${currentDrink.subtitle}`;
-            document.getElementById('section3-title').innerText = `Ultimativni 28 BLACK ukus.`; // Keep static for now or change based on product
+            document.getElementById('section3-title').innerText = `Ultimativni 28 BLACK ukus.`;
             
             // --- End Dynamic Content Update ---
             document.title = `28 CRNA | ${currentDrink.name}`;
@@ -344,7 +350,6 @@
                 mobileLinks.forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.add('translate-x-full'); }); });
             }
             
-            // KLJUČNA IZMENA: Pretvaramo fiksnu limenku u apsolutnu da bi mogla da STANE na kraju putanje
             const canContainer = document.getElementById('can-container');
             if (canContainer) {
                 canContainer.classList.remove('fixed');
@@ -352,11 +357,10 @@
             }
 
             const can = document.getElementById('animated-can');
-            const section3 = document.querySelectorAll('section')[2]; // Pronalazimo treću sekciju
+            const section3 = document.querySelectorAll('section')[2]; 
             let mm = gsap.matchMedia();
 
             mm.add("(min-width: 768px)", () => {
-                // Desktop - Pinujemo celom dužinom kontejnera
                 ScrollTrigger.create({
                     trigger: "#scroll-container",
                     start: "top top",
@@ -390,12 +394,11 @@
             });
 
             mm.add("(max-width: 767px)", () => {
-                // MOBILNI TELEFON: Limenka putuje SAMO do početka Treće sekcije, tu staje!
                 ScrollTrigger.create({
                     trigger: "#scroll-container",
                     start: "top top",
                     endTrigger: section3,
-                    end: "top top", // Otkačinje se sa ekrana čim treća sekcija dođe na vrh
+                    end: "top top", 
                     pin: "#can-container",
                     pinSpacing: false
                 });
@@ -405,12 +408,11 @@
                         trigger: "#scroll-container",
                         start: "top top",
                         endTrigger: section3,
-                        end: "top top", // I animacija se zaustavlja tačno ovde
+                        end: "top top", 
                         scrub: 1,
                     }
                 });
 
-                // Od prve do druge sekcije
                 tl.to(can, {
                     x: "0vw",
                     y: "-10vh",
@@ -419,7 +421,6 @@
                     ease: "power1.inOut"
                 }, 0);
 
-                // KRAJ PUTANJE: Limenka zauzima svoje mesto iznad "Ultimativni..." naslova i prestaje da se mrda!
                 tl.to(can, {
                     x: "0vw",
                     y: "-12vh",
@@ -428,7 +429,6 @@
                     ease: "power1.inOut"
                 }, 0.5);
                 
-                // Brisanje stare tranzicije ka slajderu jer će sada cela limenka prirodno odskrolovati gore
             });
 
             // --- Infinite Loop Slider Logic ---
