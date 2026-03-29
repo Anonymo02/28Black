@@ -30,24 +30,18 @@
     </script>
 
     <style>
-        body {
+        html, body {
             background-color: #0a0a0a;
             color: #ffffff;
             overflow-x: hidden;
+            max-width: 100%;
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
         }
         
-        /* Hide scrollbar for clean look */
+        /* Hide scrollbar for Chrome, Safari and Opera */
         ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0a0a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #333;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #ff00ff;
+            display: none;
         }
 
         .text-outline {
@@ -186,7 +180,7 @@
             </div>
         </section>
 
-        <section id="proizvodi" class="h-screen w-full relative overflow-hidden flex items-center bg-dark transition-colors duration-700" id="showcase-section">
+        <section id="showcase-section" class="h-screen w-full relative overflow-hidden flex items-center bg-dark transition-colors duration-700">
             <div class="container mx-auto px-6 h-full flex flex-col justify-center relative z-10">
                 <div class="absolute top-20 left-6 md:left-20">
                     <h2 class="font-heading text-5xl md:text-8xl text-outline opacity-30">KOLEKCIJA</h2>
@@ -194,13 +188,13 @@
 
                 <div class="flex h-[60vh] items-center relative" id="product-slider">
                     <div class="product-panel w-full flex-shrink-0 flex flex-col md:flex-row items-center justify-center gap-10 opacity-100 absolute inset-0">
-                        <div class="w-1/2 flex justify-center">
+                        <div class="w-full md:w-1/2 flex justify-center">
                             <a href="/drinks.html" class="relative group inline-block cursor-pointer transition-transform duration-500 hover:scale-105" aria-label="Classic">
                                 <img src="https://www.28black.com/wp-content/uploads/2025/09/lid-only.png" alt="Lid" class="absolute top-[-8%] left-0 w-full h-auto z-0 opacity-0 translate-y-6 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none" referrerPolicy="no-referrer">
                                 <img src="https://www.28black.com/wp-content/uploads/2025/07/acai.png" alt="Classic" class="relative z-10 w-48 md:w-64 h-auto object-contain" referrerPolicy="no-referrer">
                             </a>
                         </div>
-                        <div class="w-1/2 text-center md:text-left">
+                        <div class="w-full md:w-1/2 text-center md:text-left flex flex-col items-center md:items-start px-4 md:px-0">
                             <h3 class="font-heading text-5xl md:text-7xl mb-4 text-neon">AÇAÍ</h3>
                             <p class="text-gray-400 max-w-md text-lg">Sirova snaga. Autentičan ukus. Za one koji ne prihvataju ne kao odgovor.</p>
                         </div>
@@ -208,29 +202,29 @@
                     
                     <div class="product-panel w-full flex-shrink-0 flex flex-col md:flex-row items-center justify-center gap-10 opacity-0 absolute inset-0 translate-y-20">
     
-                        <div class="w-1/2 flex justify-center">
+                        <div class="w-full md:w-1/2 flex justify-center">
                             <a href="/drinks.html" class="relative group inline-block cursor-pointer transition-transform duration-500 hover:scale-105" aria-label="Zero">
                                 <img src="https://www.28black.com/wp-content/uploads/2025/09/lid-only.png" alt="Lid" class="absolute top-[-8%] left-0 w-full h-auto z-0 opacity-0 translate-y-6 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none" referrerPolicy="no-referrer">
                                 <img src="https://www.28black.com/wp-content/uploads/2025/07/Acai-Zero.png" alt="Zero" class="relative z-10 w-48 md:w-64 h-auto object-contain" referrerPolicy="no-referrer">
                             </a>
                         </div>
     
-                        <div class="w-1/2 text-center md:text-left">
+                        <div class="w-full md:w-1/2 text-center md:text-left flex flex-col items-center md:items-start px-4 md:px-0">
                             <h3 class="font-heading text-5xl md:text-7xl mb-4 text-neonBlue">AÇAÍ ZERO</h3>
                             <p class="text-gray-400 max-w-md text-lg">Isti intenzitet. Nula šećera. Nula kalorija.</p>
                         </div>
                     </div>
 
                     <div class="product-panel w-full flex-shrink-0 flex flex-col md:flex-row items-center justify-center gap-10 opacity-0 absolute inset-0 translate-y-20">
-                        <div class="w-1/2 flex justify-center">
+                        <div class="w-full md:w-1/2 flex justify-center">
                             <a href="/drinks.html" class="relative group inline-block cursor-pointer transition-transform duration-500 hover:scale-105" aria-label="Acid">
                                 <img src="https://www.28black.com/wp-content/uploads/2025/09/lid-only.png" alt="Lid" class="absolute top-[-8%] left-0 w-full h-auto z-0 opacity-0 translate-y-6 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none" referrerPolicy="no-referrer">
                                 <img src="https://www.28black.com/wp-content/uploads/2025/07/28B_Dose_Waldmeister_iso_matt_DE.png" alt="Acid" class="relative z-10 w-48 md:w-64 h-auto object-contain" referrerPolicy="no-referrer">
                             </a>
                         </div>
-                        <div class="w-1/2 text-center md:text-left">
+                        <div class="w-full md:w-1/2 text-center md:text-left flex flex-col items-center md:items-start px-4 md:px-0">
                             <h3 class="font-heading text-5xl md:text-7xl mb-4 text-neonGreen">WALDMEISTER</h3>
-                            <p class="text-gray-400 max-w-md text-lg">Eksplozija herbal ukusa. Nije za slabiće.</p>
+                            <p class="text-gray-400 max-w-md text-lg text-center md:text-left">Eksplozija herbal ukusa. Nije za slabiće.</p>
                         </div>
                     </div>
                 </div>
@@ -558,7 +552,7 @@
 
             // 4. Dynamic Product Showcase (Pinned Scroll)
             const panels = gsap.utils.toArray('.product-panel');
-            const showcaseSection = document.getElementById('proizvodi');
+            const showcaseSection = document.getElementById('showcase-section');
             
             // Set initial states
             gsap.set(panels[0], { opacity: 1, y: 0 });
@@ -566,7 +560,7 @@
 
             const showcaseTl = gsap.timeline({
                 scrollTrigger: {
-                    trigger: "#proizvodi",
+                    trigger: "#showcase-section",
                     start: "top top",
                     end: "+=200%", // Pin for 2 viewport heights
                     pin: true,
