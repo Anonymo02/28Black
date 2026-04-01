@@ -32,8 +32,6 @@
             /* Background color will be set dynamically via JS */
         }
         html {
-            /* Prebacili smo snapping ovde umesto u JS. 
-               VAŽNO: Ne dodajemo 'scroll-behavior: smooth' jer on izaziva bug sa skakanjem gore-dole! */
             scroll-snap-type: y mandatory;
         }
         body {
@@ -85,15 +83,60 @@
         };
         
         const productsData = {
-            'zero': { id: 'zero', name: 'Açaí Zero', subtitle: 'AÇAÍ ZERO', color: '#e65c7b', img: 'https://www.28black.com/wp-content/uploads/2025/07/Acai-Zero.png' },
-            'acai': { id: 'acai', name: 'Açaí', subtitle: 'AÇAÍ', color: '#c83246', img: 'https://www.28black.com/wp-content/uploads/2025/07/acai.png' },
-            'waldmeister': { id: 'waldmeister', name: 'Waldmeister', subtitle: 'WALDMEISTER', color: '#78c846', img: 'https://www.28black.com/wp-content/uploads/2025/07/28B_Dose_Waldmeister_iso_matt_DE.png' },
-            'sourcherry': { id: 'sourcherry', name: 'Sour Cherry', subtitle: 'SOUR CHERRY', color: '#c82828', img: 'https://www.28black.com/wp-content/uploads/2025/07/Sour-Cherry.png' },
-            'limetteminze': { id: 'limetteminze', name: 'Limette-Minze', subtitle: 'LIMETTE-MINZE', color: '#8cd264', img: 'https://www.28black.com/wp-content/uploads/2025/07/Limette-Minze.png' },
-            'sourmangokiwi': { id: 'sourmangokiwi', name: 'Sour Mango-Kiwi', subtitle: 'SOUR MANGO-KIWI', color: '#f0c846', img: 'https://www.28black.com/wp-content/uploads/2025/07/Sour-Mango-Kiwi.png' },
-            'honigmelone': { id: 'honigmelone', name: 'Honigmelone', subtitle: 'HONIGMELONE', color: '#f0dc46', img: 'https://www.28black.com/wp-content/uploads/2025/07/Honigmelone-1.png' },
-            'classic': { id: 'classic', name: 'Classic Energy Taste', subtitle: 'CLASSIC ENERGY TASTE', color: '#8c96a0', img: 'https://www.28black.com/wp-content/uploads/2025/07/Classic.png' },
-            'ananaskokos': { id: 'ananaskokos', name: 'Ananas-Kokos', subtitle: 'ANANAS-KOKOS', color: '#64b4b4', img: 'https://www.28black.com/wp-content/uploads/2025/10/28B_Ananas_Kokos.png' }
+            'zero': { 
+                id: 'zero', name: 'Açaí Zero', subtitle: 'AÇAÍ ZERO', color: '#e65c7b', img: 'slike/28_Black_Acai_Zero.webp',
+                description: 'Isti ukus kao Açaí ali ZERO, nula šećera, nula kalorija, bez glutena i laktoze.Energetsko piće sa voćnim ukusom Açaí bobice . Açaí (asai) bobice su trenutni hit u svetu, poznate kao moćno voće iz netaknute prirode Amazona, bogata antioksidansima i prirodnom energijom. Ovaj napitak ti pruža savršen balans egzotične slatkoće i potpunog osveženja.',
+                ingredients: 'Voda, ekstrakt açaí bobica, ekstrakt guarane, ugljen-dioksid, kofein, zaslađivači (natrijum-ciklamat, acesulfam K, aspartam), mešavina vitamina (vitamin C, niacin, pantotenska kiselina, vitamin B6, vitamin B12), inozitol, koncentrat boje od šargarepe, prirodna aroma, kiselina (limunska kiselina, mlečna kiselina), regulator kiselosti (trinatrijum-citrat), antioksidans (askorbinska kiselina), stabilizator (E414).<br><br>Sadrži izvor fenilalanina.<br><br>Povećan sadržaj kofeina. Ne preporučuje se deci, trudnicama i dojiljama (32 mg/100 ml).',
+                nutrition: 'Nutritivne i energetske vrednosti na 100 ml:<br><br>Energetska vrednost: 10 kJ / 2 kcal<br>Masti: 0 g<br>od toga zasićene masne kiseline: 0 g<br>Ugljeni hidrati: 0 g<br>od toga šećeri: 0 g<br>Proteini: 0 g<br>So: 0,03 g<br>Vitamin C: 24 mg<br>Niacin: 4,0 mg<br>Vitamin B6: 0,5 mg<br>Vitamin B12: 0,8 µg<br>Pantotenska kiselina: 1,8 mg'
+            },
+            'acai': { 
+                id: 'acai', name: 'Açaí', subtitle: 'AÇAÍ', color: '#c83246', img: 'slike/28_Black_Acai.webp',
+                description: 'Voćna alternativa klasičnom energetskom piću. Energetsko piće sa voćnim ukusom Açaí bobice. Açaí (asai) bobice su trenutni hit u svetu, poznate kao moćno voće iz netaknute prirode Amazona, bogata antioksidansima i prirodnom energijom. Ovaj napitak ti pruža savršen balans egzotične slatkoće i potpunog osveženja.',
+                ingredients: 'Voda, šećer, izomaltuloza*, ekstrakt açaí bobica, ekstrakt guarane, ugljen-dioksid, kofein, mešavina vitamina (vitamin C, niacin, pantotenska kiselina, vitamin B6 i vitamin B12), inozitol, koncentrat boje od šargarepe, prirodna aroma, kiselina (limunska kiselina), stabilizator (E414).<br>* Izomaltuloza je izvor glukoze i fruktoze.<br><br>Povećan sadržaj kofeina. Ne preporučuje se deci, trudnicama i dojiljama (32 mg/100 ml).',
+                nutrition: 'Nutritivne i energetske vrednosti na 100 ml:<br><br>Energetska vrednost: 191 kJ / 45 kcal<br>Masti: 0 g<br>od toga zasićene masne kiseline: 0 g<br>Ugljeni hidrati: 11 g<br>od toga šećeri: 11 g<br>Proteini: 0 g<br>So: 0,02 g<br>Vitamin C: 24 mg<br>Niacin: 5,0 mg<br>Vitamin B6: 0,5 mg<br>Vitamin B12: 0,8 µg<br>Pantotenska kiselina: 1,8 mg'
+            },
+            'waldmeister': { 
+                id: 'waldmeister', name: 'Waldmeister', subtitle: 'WALDMEISTER', color: '#78c846', img: 'slike/28_Black_Waldmeister.webp',
+                description: 'Naš novi ukus! Tradicija iz Nemačke, teško je opisati Waldmeister, morate ga probati, za sada ukus ostaje tajna!',
+                ingredients: 'Voda, šećer, ugljen-dioksid, kiselina (limunska kiselina), ekstrakt ženšena, regulator kiselosti (trinatrijum-citrat), kofein, prirodna aroma, koncentrat boje od šafranike, inozitol, mešavina vitamina: niacin, pantotenska kiselina, vitamin B6 i vitamin B12; ekstrakt guarane, boja E133.<br><br>Povećan sadržaj kofeina. Ne preporučuje se deci, trudnicama i dojiljama (32 mg/100 ml).',
+                nutrition: 'Nutritivne vrednosti na 100 ml:<br><br>Energetska vrednost: 191 kJ / 42 kcal<br>Masti: 0 g<br>od toga zasićene masne kiseline: 0 g<br>Ugljeni hidrati: 10 g<br>od toga šećeri: 10 g<br>Proteini: 0 g<br>So: 0,03 g<br>Vitamin C: 24 mg<br>Niacin: 5,0 mg<br>Vitamin B6: 0,5 mg<br>Vitamin B12: 0,8 µg<br>Pantotenska kiselina: 1,8 mg'
+            },
+            'sourcherry': { 
+                id: 'sourcherry', name: 'Sour Cherry', subtitle: 'SOUR CHERRY', color: '#c82828', img: 'slike/28_Black_Sour_Cherry.webp',
+                description: 'Ukus kisele trešnje, samo za one prave ljubitelje kiselog voća.',
+                ingredients: 'Voda, šećer, ugljen-dioksid, kofein, mešavina vitamina (niacin, pantotenska kiselina, vitamin B6, vitamin B12), inozitol, koncentrat soka crne šargarepe, aroma, kiselina (limunska kiselina).<br><br>Povećan sadržaj kofeina. Ne preporučuje se deci, trudnicama i dojiljama (32 mg/100 ml).',
+                nutrition: 'Nutritivne i energetske vrednosti na 100 ml:<br><br>Energetska vrednost: 222 kJ / 52 kcal<br>Masti: 0 g<br>od toga zasićene masne kiseline: 0 g<br>Ugljeni hidrati: 13 g<br>od toga šećeri: 13 g<br>Proteini: 0 g<br>So: 0 g<br>Niacin: 5,0 mg<br>Vitamin B6: 0,5 mg<br>Vitamin B12: 0,8 µg<br>Pantotenska kiselina: 1,8 mg'
+            },
+            'limetteminze': { 
+                id: 'limetteminze', name: 'Limette-Minze', subtitle: 'LIMETTE-MINZE', color: '#8cd264', img: 'slike/28_Black_Limette_Minze.webp',
+                description: 'Ako tražite pravo osveženje, bilo to letnji ili zimski dani, tu je ukus limeta - menta.',
+                ingredients: 'Voda, šećer, ugljen-dioksid, kofein, mešavina vitamina (vitamin C, niacin, pantotenska kiselina, vitamin B6 i vitamin B12), inozitol, prirodna aroma limete i nane, kiselina (limunska kiselina), stabilizatori (E414, E445).<br><br>Povećan sadržaj kofeina. Ne preporučuje se deci, trudnicama i dojiljama (32 mg/100 ml).',
+                nutrition: 'Nutritivne i energetske vrednosti na 100 ml:<br><br>Energetska vrednost: 195 kJ / 46 kcal<br>Masti: 0 g<br>od toga zasićene masne kiseline: 0 g<br>Ugljeni hidrati: 11 g<br>od toga šećeri: 11 g<br>Proteini: 0 g<br>So: 0,02 g<br>Vitamin C: 24 mg<br>Niacin: 4,2 mg<br>Vitamin B6: 0,47 mg<br>Vitamin B12: 0,4 µg<br>Pantotenska kiselina: 1,2 mg'
+            },
+            'sourmangokiwi': { 
+                id: 'sourmangokiwi', name: 'Sour Mango-Kiwi', subtitle: 'SOUR MANGO-KIWI', color: '#f0c846', img: 'slike/28_Black_Sour_Mango_Kiwi.webp',
+                description: 'Ukus Manga i kiselog kivija, nikog ne ostavlja ravnodušnim. Upoznajte prave tropske ukuse!',
+                ingredients: 'Voda, šećer, ugljen-dioksid, kofein, mešavina vitamina (vitamin C, pantotenska kiselina, vitamin B6, vitamin B12), inozitol, boja (E160a), aroma, kiselina (limunska kiselina).<br><br>Povećan sadržaj kofeina. Ne preporučuje se deci, trudnicama i dojiljama (32 mg/100 ml).<br>Podaci prema proizvođaču. Zadržavamo pravo na greške i izmene.',
+                nutrition: 'Nutritivne vrednosti na 100 ml:<br><br>Energetska vrednost: 182 kJ / 43 kcal<br>Masti: 0 g<br>od toga zasićene masne kiseline: 0 g<br>Ugljeni hidrati: 10 g<br>od toga šećeri: 10 g<br>Proteini: 0 g<br>So: 0 g<br>Vitamin C: 24 mg<br>Niacin: 5,0 mg<br>Vitamin B6: 0,5 mg<br>Vitamin B12: 0,8 µg<br>Pantotenska kiselina: 1,8 mg'
+            },
+            'honigmelone': { 
+                id: 'honigmelone', name: 'Honigmelone', subtitle: 'HONIGMELONE', color: '#f0dc46', img: 'slike/28_Black_Honigmelone.webp',
+                description: 'Medena dinja, jasni ukus meda i dinje za pravo osveženje!',
+                ingredients: 'Prirodna mineralna voda, šećer, kiselina (limunska kiselina), ugljen-dioksid, ekstrakt ženšena, regulator kiselosti (trinatrijum-citrat), mešavina vitamina: vitamin C, niacin, pantotenska kiselina, vitamin B6 i vitamin B12; kofein, inozitol, koncentrat boje od šafranike, ekstrakt guarane, prirodna aroma.<br><br>Povećan sadržaj kofeina. Ne preporučuje se deci, trudnicama i dojiljama (32 mg/100 ml).',
+                nutrition: 'Nutritivne i energetske vrednosti na 100 ml:<br><br>Energetska vrednost: 191 kJ / 45 kcal<br>Masti: 0 g<br>od toga zasićene masne kiseline: 0 g<br>Ugljeni hidrati: 11 g<br>od toga šećeri: 11 g<br>Proteini: 0 g<br>So: 0,02 g<br>Vitamin C: 24 mg<br>Niacin: 5,0 mg<br>Vitamin B6: 0,5 mg<br>Vitamin B12: 0,8 µg<br>Pantotenska kiselina: 1,8 mg'
+            },
+            'classic': { 
+                id: 'classic', name: 'Classic Energy Taste', subtitle: 'CLASSIC ENERGY TASTE', color: '#8c96a0', img: 'slike/28_Black_Classic_Energy_Taste.webp',
+                description: 'Za sve one, koji vole klasiku. Klasični ukus ekstrata guarane je pravi izbor!',
+                ingredients: 'Voda, šećer, kiselina (limunska kiselina), ugljen-dioksid, regulator kiselosti (trinatrijum-citrat), aroma, antioksidans (askorbinska kiselina), kofein, boja (E150c), glukuronolakton, inozitol, mešavina vitamina (niacin, pantotenska kiselina, vitamin B6 i vitamin B12).<br><br>Povećan sadržaj kofeina. Ne preporučuje se deci, trudnicama i dojiljama (32 mg/100 ml).',
+                nutrition: 'Nutritivne vrednosti na 100 ml:<br><br>Energetska vrednost: 183 kJ / 43 kcal<br>Masti: 0 g<br>od toga zasićene masne kiseline: 0 g<br>Ugljeni hidrati: 10 g<br>od toga šećeri: 10 g<br>Vlakna: 0 g<br>Proteini: 0 g<br>So: 0,19 g<br>Niacin: 5,0 mg<br>Vitamin B6: 0,5 mg<br>Vitamin B12: 0,8 µg<br>Pantotenska kiselina: 1,8 mg'
+            },
+            'ananaskokos': { 
+                id: 'ananaskokos', name: 'Ananas-Kokos', subtitle: 'ANANAS-KOKOS', color: '#64b4b4', img: 'slike/28B_Ananas_Kokos.webp',
+                description: 'Dennis Schröder edicija. Otkrijte naš tropsko-voćni energetski napitak, jedinstveno osvežavajuću kombinaciju ukusa ananasa, marakuje i kokosa. Dennis Schröder je podržao 28 Black i tako postao naše zaštitno lice. Drago nam je da jedan od najboljih košarkaša evrope bude u našem timu!',
+                ingredients: 'Voda, šećer, ugljen-dioksid, kiselina (limunska kiselina), ekstrakt ženšena, regulator kiselosti (trinatrijum-citrat), mešavina vitamina (vitamin C, niacin, pantotenska kiselina, vitamin B6 i vitamin B12), kofein, prirodna aroma, inozitol, ekstrakt guarane, boja beta-karoten.<br><br>Povećan sadržaj kofeina. Ne preporučuje se deci, trudnicama i dojiljama (32 mg/100 ml).<br>Podaci prema proizvođaču. Zadržavamo pravo na greške i izmene.',
+                nutrition: 'Nutritivne i energetske vrednosti na 100 ml:<br><br>Energetska vrednost: 186 kJ / 40 kcal<br>Masti: 0 g<br>od toga zasićene masne kiseline: 0 g<br>Ugljeni hidrati: 9,6 g<br>od toga šećeri: 9,5 g<br>Proteini: 0 g<br>So: 0,04 g<br>Vitamin C: 24 mg<br>Niacin: 5,0 mg<br>Vitamin B6: 0,5 mg<br>Vitamin B12: 0,8 µg<br>Pantotenska kiselina: 1,8 mg'
+            }
         };
 
         const urlParams = new URLSearchParams(window.location.search);
@@ -107,21 +150,21 @@
 
     <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-[100] transform translate-x-full transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] flex flex-col">
         <div class="flex justify-between items-center p-6 md:p-10 w-full">
-            <a href="/"><img src="https://www.28black.com/wp-content/uploads/2025/07/logo-1-1.png" alt="28 Black Logo" class="h-8"></a>
+            <a href="/"><img src="slike/28_logo.webp" alt="28 Black Logo" class="h-8"></a>
             <button id="close-menu" class="font-heading text-5xl text-white hover:text-neon transition-colors leading-none">&times;</button>
         </div>
         <div class="flex-1 flex flex-col justify-center items-center gap-8 md:gap-12 font-heading text-5xl md:text-7xl text-center uppercase text-white leading-normal">
-            <a href="drinks.html" class="mobile-link relative group overflow-hidden block">
+            <a href="/drinks.html" class="mobile-link relative group overflow-hidden block">
                 <span class="block transition-transform duration-500 ease-out group-hover:-translate-y-full">Proizvodi</span>
                 <span class="absolute inset-0 block text-neon transition-transform duration-500 ease-out translate-y-full group-hover:translate-y-0">Proizvodi</span>
             </a>
-            <a href="#sastojci" class="mobile-link relative group overflow-hidden block">
+            <a href="/#sastojci" class="mobile-link relative group overflow-hidden block">
                 <span class="block transition-transform duration-500 ease-out group-hover:-translate-y-full">Sastojci</span>
                 <span class="absolute inset-0 block text-neon transition-transform duration-500 ease-out translate-y-full group-hover:translate-y-0">Sastojci</span>
             </a>
-            <a href="#prica" class="mobile-link relative group overflow-hidden block">
-                <span class="block transition-transform duration-500 ease-out group-hover:-translate-y-full">Priča</span>
-                <span class="absolute inset-0 block text-neon transition-transform duration-500 ease-out translate-y-full group-hover:translate-y-0">Priča</span>
+            <a href="/#nasa-prica" class="mobile-link relative group overflow-hidden block">
+                <span class="block transition-transform duration-500 ease-out group-hover:-translate-y-full">Naša priča</span>
+                <span class="absolute inset-0 block text-neon transition-transform duration-500 ease-out translate-y-full group-hover:translate-y-0">Naša priča</span>
             </a>
         </div>
         <div class="p-10 flex justify-center gap-8 text-sm font-bold tracking-widest uppercase text-gray-500">
@@ -132,11 +175,11 @@
     </div>
 
     <nav class="fixed top-0 left-0 w-full p-6 md:p-10 flex justify-between items-center z-50">
-        <a href="/"><img src="https://www.28black.com/wp-content/uploads/2025/07/logo-1-1.png" alt="28 Black Logo" class="h-8 md:h-10"></a>
+        <a href="/"><img src="slike/28_logo.webp" alt="28 Black Logo" class="h-8 md:h-10"></a>
         <div class="hidden md:flex gap-8 font-bold text-sm tracking-widest uppercase mix-blend-difference text-white">
             <a href="drinks.html" class="hover:text-neon transition-colors">Proizvodi</a>
-            <a href="#sastojci" class="hover:text-neon transition-colors">Sastojci</a>
-            <a href="#prica" class="hover:text-neon transition-colors">Priča</a>
+            <a href="/#sastojci" class="hover:text-neon transition-colors">Sastojci</a>
+            <a href="/#nasa-prica" class="hover:text-neon transition-colors">Naša priča</a>
         </div>
         <button id="open-menu" class="md:hidden font-heading text-xl mix-blend-difference text-white">MENI</button>
     </nav>
@@ -151,17 +194,19 @@
 
         <section class="relative w-full h-screen flex justify-center items-center z-10 overflow-hidden snap-start">
             <div class="flex flex-col items-center justify-center leading-none mt-20 w-full px-4">
-                <h1 id="hero-title-1" class="font-heading text-[25vw] md:text-[22vw] text-white tracking-wider m-0 p-0 text-center w-full" style="line-height: 0.85;">AÇAÍ</h1>
-                <h1 id="hero-title-2" class="font-heading text-[25vw] md:text-[22vw] text-outline tracking-wider m-0 p-0 text-center w-full" style="line-height: 0.85;">AÇAÍ</h1>
-                <h1 id="hero-title-3" class="font-heading text-[25vw] md:text-[22vw] text-outline tracking-wider m-0 p-0 text-center w-full" style="line-height: 0.85;">AÇAÍ</h1>
+                <h1 id="hero-title-1" class="font-heading text-[24vw] md:text-[20vw] text-white tracking-wider m-0 p-0 text-center w-full whitespace-normal md:whitespace-nowrap" style="line-height: 0.85;">AÇAÍ</h1>
+                <h1 id="hero-title-2" class="font-heading text-[24vw] md:text-[20vw] text-outline tracking-wider m-0 p-0 text-center w-full whitespace-normal md:whitespace-nowrap" style="line-height: 0.85;">AÇAÍ</h1>
+                <h1 id="hero-title-3" class="font-heading text-[24vw] md:text-[20vw] text-outline tracking-wider m-0 p-0 text-center w-full whitespace-normal md:whitespace-nowrap" style="line-height: 0.85;">AÇAÍ</h1>
             </div>
         </section>
 
-        <section class="relative w-full min-h-[110vh] md:min-h-screen flex flex-col justify-start md:justify-center pt-[55vh] md:pt-0 z-20 snap-start">
-            <h2 id="section2-title" class="font-heading text-5xl md:text-[8rem] text-white text-center mb-10 w-full absolute top-24 md:top-32 left-0 tracking-wide z-10 drop-shadow-lg">28 BLACK AÇAÍ</h2>
-            <div class="flex flex-col md:flex-row w-full justify-end md:justify-center items-center pb-16 md:pb-0 max-w-7xl mx-auto">
-                <div class="hidden md:block w-1/2"></div> <div class="w-full md:w-1/2 px-6 md:pl-20 text-center md:text-left z-40">
-                    <p class="text-lg md:text-3xl font-light leading-relaxed mb-8 md:mb-10 max-w-2xl text-white drop-shadow-md">
+        <section class="relative w-full min-h-screen flex flex-col justify-start md:justify-center pt-24 md:pt-32 pb-8 z-20 snap-start">
+            <h2 id="section2-title" class="font-heading text-5xl md:text-[6rem] lg:text-[7.5rem] leading-none text-white text-center mb-2 md:mb-12 w-full tracking-wide z-10 drop-shadow-lg px-4">28 BLACK AÇAÍ</h2>
+            <div class="flex flex-col md:flex-row w-full justify-start md:justify-center items-center pb-8 md:pb-0 max-w-7xl mx-auto flex-1">
+                <div class="w-full h-[38vh] md:hidden"></div>
+                <div class="hidden md:block w-1/2"></div> 
+                <div class="w-full md:w-1/2 px-4 sm:px-6 md:pl-12 lg:pl-20 text-center md:text-left z-40">
+                    <p id="section2-desc" class="text-sm sm:text-base md:text-2xl lg:text-[1.75rem] font-light leading-snug md:leading-relaxed mb-4 md:mb-10 max-w-2xl text-white drop-shadow-md">
                         Voćna alternativa konvencionalnom energetskom piću. Energetsko piće sa voćnim ukusom Açaí bobice. Posebno voćno i osvežavajuće, manje veštačko i manje slatko.
                     </p>
                 </div>
@@ -181,9 +226,9 @@
                                 </span>
                             </button>
                             <div class="accordion-content" style="max-height: 500px; padding-bottom: 1.5rem;">
-                                <p class="text-white/90 text-sm md:text-base leading-relaxed font-light">
-                                    Voda, šećer, izomaltuloza*, ekstrakt açaí bobica, ekstrakt guarane, ugljena kiselina, kofein, mešavina vitamina (vitamin C, niacin, pantotenska kiselina, vitamin B6 i vitamin B12), inozitol, koncentrat boje od šargarepe, prirodna aroma, kiselina (limunska kiselina), stabilizator (E414). * Izomaltuloza je izvor glukoze i fruktoze<br><br>
-                                    Povećan sadržaj kofeina. Ne preporučuje se deci, trudnicama i dojiljama (32mg/100ml).
+                                <p id="ingredients-text" class="text-white/90 text-sm md:text-base leading-relaxed font-light">
+                                    Voda, šećer, izomaltuloza*, ekstrakt açaí bobica, ekstrakt guarane, ugljen-dioksid, kofein, mešavina vitamina (vitamin C, niacin, pantotenska kiselina, vitamin B6 i vitamin B12), inozitol, koncentrat boje od šargarepe, prirodna aroma, kiselina (limunska kiselina), stabilizator (E414).<br>* Izomaltuloza je izvor glukoze i fruktoze.<br><br>
+                                    Povećan sadržaj kofeina. Ne preporučuje se deci, trudnicama i dojiljama (32 mg/100 ml).
                                 </p>
                             </div>
                         </div>
@@ -194,14 +239,20 @@
                                 </span>
                             </button>
                             <div class="accordion-content">
-                                <p class="text-white/90 text-sm md:text-base leading-relaxed font-light">
-                                    Energetska vrednost: 197 kJ (46 kcal)<br>
+                                <p id="nutrition-text" class="text-white/90 text-sm md:text-base leading-relaxed font-light">
+                                    Nutritivne i energetske vrednosti na 100 ml:<br><br>
+                                    Energetska vrednost: 191 kJ / 45 kcal<br>
                                     Masti: 0 g<br>
                                     od toga zasićene masne kiseline: 0 g<br>
                                     Ugljeni hidrati: 11 g<br>
                                     od toga šećeri: 11 g<br>
                                     Proteini: 0 g<br>
-                                    So: 0 g
+                                    So: 0,02 g<br>
+                                    Vitamin C: 24 mg<br>
+                                    Niacin: 5,0 mg<br>
+                                    Vitamin B6: 0,5 mg<br>
+                                    Vitamin B12: 0,8 µg<br>
+                                    Pantotenska kiselina: 1,8 mg
                                 </p>
                             </div>
                         </div>
@@ -248,15 +299,8 @@
 
     <footer class="relative bg-black pt-20 pb-10 overflow-hidden border-t border-white/10 z-40 snap-end">
         <div class="container mx-auto px-6 relative z-10">
-            <div class="flex flex-col items-center justify-center text-center mb-16 space-y-3 text-gray-400">
-                  <h4 class="text-2xl md:text-3xl text-white font-heading tracking-wider mb-2 uppercase">IAB Group d.o.o.</h4>
-                  <p>Matični broj: <span class="text-white">22074377</span></p>
-                  <p>PIB: <span class="text-white">114814565</span></p>
-                  <p>Telefon: <a href="tel:+381601234567" class="text-white hover:text-neon transition-colors">+381 62 388 818</a></p>
-                  <p>Email: <a href="mailto:iab.group.balkan@gmail.com" class="text-white hover:text-neon transition-colors">iab.group.balkan@gmail.com</a></p>
-            </div>
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <img src="https://www.28black.com/wp-content/uploads/2025/07/logo-1-1.png" alt="28 Black Logo" class="h-8 mb-6 md:mb-0">
+                <img src="slike/28_logo.webp" alt="28 Black Logo" class="h-8 mb-6 md:mb-0">
                 
                 <div class="flex gap-8 mb-6 md:mb-0">
                     <a href="#" class="text-gray-400 hover:text-white transition-colors font-bold tracking-wider uppercase text-sm">Instagram</a>
@@ -301,8 +345,6 @@
                 iconSpan.innerText = '+';
             }
             
-            // VAŽNO: Nakon što se harmonika zatvori/otvori i promeni visinu, 
-            // govorimo GSAP-u da preračuna okidače, kako ne bi poremetio snapping
             setTimeout(() => {
                 if(window.ScrollTrigger) ScrollTrigger.refresh();
             }, 350);
@@ -310,7 +352,6 @@
 
         window.addEventListener('load', () => {
             window.scrollTo(0, 0);
-            // Izbrisali smo JS hack za timeout i 'scroll-smooth' - sada sve to kontroliše CSS na stabilan način
         });
 
         document.addEventListener("DOMContentLoaded", () => {
@@ -322,11 +363,12 @@
             animatedCan.src = currentDrink.img;
             animatedCan.alt = currentDrink.name + " Can";
             
-            let heroFontSize = "text-[25vw] md:text-[22vw]";
-            if (currentDrink.subtitle.length > 15) {
-                heroFontSize = "text-[15vw] md:text-[12vw]";
-            } else if (currentDrink.subtitle.length > 10) {
-                heroFontSize = "text-[18vw] md:text-[15vw]";
+            // IZMENJENO: Veličine za mobilni (text-[24vw]) su sada fiksne uvek, a modifikujemo samo deo na md: (desktop) ekranima
+            let heroFontSize = "text-[24vw] md:text-[20vw]"; 
+            if (currentDrink.subtitle.length >= 15) {
+                heroFontSize = "text-[24vw] md:text-[10vw]";
+            } else if (currentDrink.subtitle.length >= 8) { 
+                heroFontSize = "text-[24vw] md:text-[15vw]"; 
             }
             
             const hero1 = document.getElementById('hero-title-1');
@@ -337,12 +379,26 @@
             hero2.innerText = currentDrink.subtitle;
             hero3.innerText = currentDrink.subtitle;
             
-            hero1.className = `font-heading ${heroFontSize} text-white tracking-wider m-0 p-0 text-center w-full`;
-            hero2.className = `font-heading ${heroFontSize} text-outline tracking-wider m-0 p-0 text-center w-full`;
-            hero3.className = `font-heading ${heroFontSize} text-outline tracking-wider m-0 p-0 text-center w-full`;
+            // IZMENJENO: Primenjujemo `whitespace-normal` na mobilnom, a `md:whitespace-nowrap` samo na desktopu
+            hero1.className = `font-heading ${heroFontSize} text-white tracking-wider m-0 p-0 text-center w-full whitespace-normal md:whitespace-nowrap`;
+            hero2.className = `font-heading ${heroFontSize} text-outline tracking-wider m-0 p-0 text-center w-full whitespace-normal md:whitespace-nowrap`;
+            hero3.className = `font-heading ${heroFontSize} text-outline tracking-wider m-0 p-0 text-center w-full whitespace-normal md:whitespace-nowrap`;
 
             document.getElementById('section2-title').innerText = `28 BLACK ${currentDrink.subtitle}`;
             document.getElementById('section3-title').innerText = `Ultimativni 28 BLACK ukus.`;
+            
+            if (currentDrink.description) {
+                document.getElementById('section2-desc').innerText = currentDrink.description;
+            } else {
+                document.getElementById('section2-desc').innerText = 'Voćna alternativa konvencionalnom energetskom piću. Energetsko piće sa voćnim ukusom Açaí bobice. Posebno voćno i osvežavajuće, manje veštačko i manje slatko.';
+            }
+            
+            if (currentDrink.ingredients) {
+                document.getElementById('ingredients-text').innerHTML = currentDrink.ingredients;
+            }
+            if (currentDrink.nutrition) {
+                document.getElementById('nutrition-text').innerHTML = currentDrink.nutrition;
+            }
             
             // --- End Dynamic Content Update ---
             document.title = `28 CRNA | ${currentDrink.name}`;
